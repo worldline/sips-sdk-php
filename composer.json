@@ -1,0 +1,36 @@
+{
+  "name": "worldline/sips-payment-sdk",
+  "description": "This library simplifies the use of Sips 2.0, the e-payments API.",
+  "keywords": [
+    "Sips",
+    "Worldline",
+    "PSP",
+    "Payments",
+    "Bancontact"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nicolas Ros",
+      "email": "supportsips-benelux@worldline.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "guzzlehttp/guzzle": "@stable"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "Worldline\\Sips\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Worldline\\Sips\\Test\\": "tests"
+    }
+  }
+}
