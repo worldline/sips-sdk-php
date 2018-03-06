@@ -9,7 +9,7 @@ The recommanded way to install this Sips Library is through [Composer](http://ge
 
 Run the composer commmand to install the latest stable version of the package:
 ```bash
-composer require Worldline/SipsLibJSON
+composer require worldline/sips-payment-sdk
 ```
 After installing the package, you need to require Composer's autoloader:
 ```php
