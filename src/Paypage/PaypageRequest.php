@@ -26,6 +26,7 @@ class PaypageRequest
     private $holderAddress;
     private $holderContact;
     private $interfaceVersion;
+    private $intermediateServiceProvider;
     private $keyVersion;
     private $merchantId;
     private $merchantWalletId;
@@ -392,6 +393,40 @@ class PaypageRequest
     {
         $this->holderContact = $holderContact;
     }
+
+    /**
+     * @return string
+     */
+    public function getInterfaceVersion(): string
+    {
+        return $this->interfaceVersion;
+    }
+
+    /**
+     * @param string $interfaceVersion
+     */
+    public function setInterfaceVersion(string $interfaceVersion)
+    {
+        $this->interfaceVersion = $interfaceVersion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIntermediateServiceProvider() : string
+    {
+        return $this->intermediateServiceProvider;
+    }
+
+    /**
+     * @param string $intermediateServiceProvider
+     */
+    public function setIntermediateServiceProvider(string $intermediateServiceProvider)
+    {
+        $this->intermediateServiceProvider = $intermediateServiceProvider;
+    }
+
+
 
     /**
      * @return int
