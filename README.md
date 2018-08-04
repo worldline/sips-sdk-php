@@ -43,7 +43,7 @@ $paypageRequest->setOrderChannel("INTERNET");
 
 Add a unique reference for the transaction.
 ```php
-$paymentRequest.setTransactionReference("myUniqueIdentifier");
+$paypageRequest->setTransactionReference("myUniqueIdentifier");
 ``` 
 :bulb: If no reference is provided by you, the plugin will generate one.
 
@@ -68,11 +68,11 @@ Since this should redirect the customer to the Sips payment page, the cleanest e
 ### Verifying the payment
 When the customer is done, he will be able to return to your application. This is done via a form, making a POST request to the normalReturnUrl provided during the initialization of your payment.
 This POST request contains details on the payment.
-You can simple decode these responses and create a `PaypageResult` object by calling the `decodeResponse` function:
+You can simple decode these responses and create a `PaypageResult` object by calling the `finalizeTransaction` function:
 
 ```php
 $sipsClient = new SipsClient( new SipsEnvironment("SIMU"), "002001000000001", "002001000000001_KEY1", 1 );
-$paypageResponse = $sipsClient->decodeResponse();
+$paypageResponse = $sipsClient->finalizeTransaction();
 
 ```
 
