@@ -11,8 +11,8 @@ class JsonSealCalculator
 {
     public function calculateSeal(SipsMessage &$paypageRequest, $secretKey)
     {
-        $seal = $this->encrypt($this->getSealData($paypageRequest->toArray()), $secretKey);
-        $paypageRequest->setSeal($seal);
+        $seal = $this->encrypt($this->getSealData($sipsRequest->toArray()), $secretKey);
+        $sipsRequest->setSeal($seal);
     }
 
     private function encrypt(string $sealData, string $secretKey): string
