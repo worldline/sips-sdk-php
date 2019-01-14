@@ -120,7 +120,7 @@ class PaypageRequest extends SipsMessage
     public function __construct()
     {
         $this->serviceUrl = "rs-services/v2/paymentInit";
-        $this->interfaceVersion = "IR_WS_2.19";
+        $this->interfaceVersion = "IR_WS_2.23";
         $this->setTransactionReference($this->generateReference());
     }
 
