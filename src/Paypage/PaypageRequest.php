@@ -14,10 +14,6 @@ use Worldline\Sips\Common\Field\PaypageData;
 class PaypageRequest extends SipsMessage
 {
     /**
-     * @var string
-     */
-    public $serviceUrl = "rs-services/v2/paymentInit";
-    /**
      * @var int
      */
     protected $amount;
@@ -80,19 +76,7 @@ class PaypageRequest extends SipsMessage
     /**
      * @var string
      */
-    protected $interfaceVersion;
-    /**
-     * @var string
-     */
     protected $intermediateServiceProviderId;
-    /**
-     * @var int
-     */
-    protected $keyVersion;
-    /**
-     * @var string
-     */
-    protected $merchantId;
     /**
      * @var string
      */
@@ -120,10 +104,6 @@ class PaypageRequest extends SipsMessage
     /**
      * @var string
      */
-    protected $seal;
-    /**
-     * @var string
-     */
     protected $statementReference;
     /**
      * @var string
@@ -139,6 +119,7 @@ class PaypageRequest extends SipsMessage
      */
     public function __construct()
     {
+        $this->serviceUrl = "rs-services/v2/paymentInit";
         $this->interfaceVersion = "IR_WS_2.19";
         $this->setTransactionReference($this->generateReference());
     }
@@ -152,14 +133,6 @@ class PaypageRequest extends SipsMessage
         $microtime[0] = $microtime[0] * 1000000;
         $transactionReference = $microtime[1] . $microtime[0];
         return $transactionReference;
-    }
-
-    /**
-     * @return string
-     */
-    public function getServiceUrl(): string
-    {
-        return $this->serviceUrl;
     }
 
     /**
@@ -529,23 +502,6 @@ class PaypageRequest extends SipsMessage
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getInterfaceVersion(): ?string
-    {
-        return $this->interfaceVersion;
-    }
-
-    /**
-     * @param string $interfaceVersion
-     * @return PaypageRequest
-     */
-    public function setInterfaceVersion(string $interfaceVersion): PaypageRequest
-    {
-        $this->interfaceVersion = $interfaceVersion;
-        return $this;
-    }
 
     /**
      * @return string|null
@@ -562,42 +518,6 @@ class PaypageRequest extends SipsMessage
     public function setIntermediateServiceProviderId(string $intermediateServiceProviderId): PaypageRequest
     {
         $this->intermediateServiceProviderId = $intermediateServiceProviderId;
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getKeyVersion(): ?int
-    {
-        return $this->keyVersion;
-    }
-
-    /**
-     * @param int $keyVersion
-     * @return PaypageRequest
-     */
-    public function setKeyVersion(int $keyVersion): PaypageRequest
-    {
-        $this->keyVersion = $keyVersion;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMerchantId(): ?string
-    {
-        return $this->merchantId;
-    }
-
-    /**
-     * @param string $merchantId
-     * @return PaypageRequest
-     */
-    public function setMerchantId(string $merchantId): PaypageRequest
-    {
-        $this->merchantId = $merchantId;
         return $this;
     }
 
@@ -713,23 +633,6 @@ class PaypageRequest extends SipsMessage
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getSeal(): ?string
-    {
-        return $this->seal;
-    }
-
-    /**
-     * @param string $seal
-     * @return PaypageRequest
-     */
-    public function setSeal(string $seal): PaypageRequest
-    {
-        $this->seal = $seal;
-        return $this;
-    }
 
     /**
      * @return string|null

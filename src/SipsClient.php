@@ -9,7 +9,7 @@ use Worldline\Sips\Common\Seal\JsonSealCalculator;
 use Worldline\Sips\Common\Seal\PostSealCalculator;
 use Worldline\Sips\Common\SipsEnvironment;
 use Worldline\Sips\Paypage\InitializationResponse;
-use Worldline\Sips\Paypage\PaypageRequest;
+use Worldline\Sips\SipsRequest;
 use Worldline\Sips\Paypage\PaypageResult;
 use Worldline\Sips\Paypage\SipsMessage;
 
@@ -76,8 +76,8 @@ class SipsClient
      */
     public function initialize(SipsMessage &$paymentRequest): InitializationResponse
     {
-        $paymentRequest->setMerchantId($this->getMerchantId());
-        $paymentRequest->setKeyVersion($this->getKeyVersion());
+        $sipsRequest->setMerchantId($this->getMerchantId());
+        $sipsRequest->setKeyVersion($this->getKeyVersion());
 
         $sealCalculator = new JsonSealCalculator();
         $sealCalculator->calculateSeal($paymentRequest, $this->secretKey);
@@ -88,7 +88,7 @@ class SipsClient
             "Content-Type" => "application/json",
             "Accept" => "application/json",
         ];
-        $request = new Request("POST", $paymentRequest->getServiceUrl(), $headers, $json);
+        $request = new Request("POST", $sipsRequest->getServiceUrl(), $headers, $json);
         $response = $client->send($request);
         $this->lastResponseAsJson = $response->getBody()->getContents();
         $initialisationResponse = new InitializationResponse(json_decode($this->lastResponseAsJson, true));

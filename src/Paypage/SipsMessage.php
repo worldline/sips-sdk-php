@@ -9,7 +9,7 @@
 namespace Worldline\Sips\Paypage;
 
 
-class SipsMessage
+class SipsMessage extends \Worldline\Sips\SipsRequest
 {
     /**
      * @return array
