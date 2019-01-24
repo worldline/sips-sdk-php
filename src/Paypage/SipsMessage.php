@@ -12,20 +12,23 @@ namespace Worldline\Sips\Paypage;
 class SipsMessage extends \Worldline\Sips\SipsRequest
 {
     /**
+     *
+     * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
-    public function toArray(): array
+    public function _toArray($prefixKey = ''): array
     {
-        $array = [];
+        $array    = [];
         foreach ($this as $key => $value) {
-            if ($value != null && $key != "serviceUrl" && $key != "paymentMeanBrandList") {
-                if (is_int($value) || is_string($value)) {
-                    $array[$key] = $value;
-                } else {
-                    $array[$key] = $value->toArray();
-                }
-            } elseif ($key == "paymentMeanBrandList" && !is_null($value)) {
-                $array[$key] = $value;
+            if (is_null($value) || $key === 'serviceUrl') {
+                // null values are excluded from the array export
+                continue;
+            }
+            if ($value instanceof SipsRequest) {
+                // Every value in the sub object must be prefixed by the current key
+                $array = array_merge($array, $value->toArray($key));
+            } else {
+                $array[$prefixKey . $key] = $value;
             }
         }
         ksort($array);

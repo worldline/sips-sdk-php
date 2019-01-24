@@ -119,7 +119,7 @@ class PaypageRequest extends SipsMessage
      */
     public function __construct()
     {
-        $this->serviceUrl = "rs-services/v2/paymentInit";
+        $this->serviceUrl       = "rs-services/v2/paymentInit";
         $this->interfaceVersion = "IR_WS_2.23";
         $this->setTransactionReference($this->generateReference());
     }
@@ -137,8 +137,8 @@ class PaypageRequest extends SipsMessage
      */
     public function generateReference(): string
     {
-        $microtime = explode(' ', microtime());
-        $microtime[0] = $microtime[0] * 1000000;
+        $microtime            = explode(' ', microtime());
+        $microtime[0]         = $microtime[0] * 1000000;
         $transactionReference = $microtime[1] . $microtime[0];
         return $transactionReference;
     }
@@ -509,7 +509,6 @@ class PaypageRequest extends SipsMessage
         $this->holderContact = $holderContact;
         return $this;
     }
-
 
     /**
      * @return string|null

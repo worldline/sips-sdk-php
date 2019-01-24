@@ -39,6 +39,12 @@ abstract class SipsRequest
 
     /**
      *
+     * @var string
+     */
+    protected $sealAlgorithm;
+
+    /**
+     *
      * @return string
      */
     public function getServiceUrl(): string
@@ -79,6 +85,15 @@ abstract class SipsRequest
     public function getSeal(): ?string
     {
         return $this->seal;
+    }
+
+    /**
+     *
+     * @return $this
+     */
+    public function getSealAlgorithm(): string
+    {
+        return $this->sealAlgorithm;
     }
 
     /**
@@ -126,6 +141,19 @@ abstract class SipsRequest
     }
 
     /**
+     *
+     * @param string $sealAlgorithm
+     * @return $this
+     */
+    public function setSealAlgorithm(string $sealAlgorithm)
+    {
+        $this->sealAlgorithm = $sealAlgorithm;
+        return $this;
+    }
+
+    /**
+     *
+     * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
     abstract protected function toArray(): array;
