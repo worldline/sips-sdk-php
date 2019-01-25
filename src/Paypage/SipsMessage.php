@@ -16,7 +16,7 @@ class SipsMessage extends \Worldline\Sips\SipsRequest
      * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
-    public function _toArray($prefixKey = ''): array
+    public function toArray($prefixKey = ''): array
     {
         $array    = [];
         foreach ($this as $key => $value) {
