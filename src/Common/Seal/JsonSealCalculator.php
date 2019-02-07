@@ -5,10 +5,11 @@ namespace Worldline\Sips\Common\Seal;
 
 use Worldline\Sips\Paypage\InitializationResponse;
 use Worldline\Sips\Paypage\PaypageRequest;
+use Worldline\Sips\Paypage\SipsMessage;
 
 class JsonSealCalculator
 {
-    public function calculateSeal(PaypageRequest &$paypageRequest, $secretKey)
+    public function calculateSeal(SipsMessage &$paypageRequest, $secretKey)
     {
         $seal = $this->encrypt($this->getSealData($paypageRequest->toArray()), $secretKey);
         $paypageRequest->setSeal($seal);

@@ -11,6 +11,7 @@ use Worldline\Sips\Common\SipsEnvironment;
 use Worldline\Sips\Paypage\InitializationResponse;
 use Worldline\Sips\Paypage\PaypageRequest;
 use Worldline\Sips\Paypage\PaypageResult;
+use Worldline\Sips\Paypage\SipsMessage;
 
 class SipsClient
 {
@@ -61,11 +62,11 @@ class SipsClient
     }
 
     /**
-     * @param PaypageRequest $paymentRequest
+     * @param SipsMessage $paymentRequest
      * @return InitializationResponse
      * @throws \Exception
      */
-    public function initialize(PaypageRequest &$paymentRequest): InitializationResponse
+    public function initialize(SipsMessage &$paymentRequest): InitializationResponse
     {
         $paymentRequest->setMerchantId($this->getMerchantId());
         $paymentRequest->setKeyVersion($this->getKeyVersion());
