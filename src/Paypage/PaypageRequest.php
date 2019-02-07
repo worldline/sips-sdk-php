@@ -20,119 +20,119 @@ class PaypageRequest extends SipsMessage
     /**
      * @var int
      */
-    private $amount;
+    protected $amount;
     /**
      * @var string
      */
-    private $automaticResponseUrl;
+    protected $automaticResponseUrl;
     /**
      * @var Address
      */
-    private $billingAddress;
+    protected $billingAddress;
     /**
      * @var Contact
      */
-    private $billingContact;
+    protected $billingContact;
     /**
      * @var int
      */
-    private $captureDay;
+    protected $captureDay;
     /**
      * @var string
      */
-    private $captureMode;
+    protected $captureMode;
     /**
      * @var string
      */
-    private $currencyCode;
+    protected $currencyCode;
     /**
      * @var string
      */
-    private $customerId;
+    protected $customerId;
     /**
      * @var Address
      */
-    private $customerAddress;
+    protected $customerAddress;
     /**
      * @var Contact
      */
-    private $customerContact;
+    protected $customerContact;
     /**
      * @var string
      */
-    private $customerLanguage;
+    protected $customerLanguage;
     /**
      * @var Address
      */
-    private $deliveryAddress;
+    protected $deliveryAddress;
     /**
      * @var Contact
      */
-    private $deliveryContact;
+    protected $deliveryContact;
     /**
      * @var Address
      */
-    private $holderAddress;
+    protected $holderAddress;
     /**
      * @var Contact
      */
-    private $holderContact;
+    protected $holderContact;
     /**
      * @var string
      */
-    private $interfaceVersion;
+    protected $interfaceVersion;
     /**
      * @var string
      */
-    private $intermediateServiceProviderId;
+    protected $intermediateServiceProviderId;
     /**
      * @var int
      */
-    private $keyVersion;
+    protected $keyVersion;
     /**
      * @var string
      */
-    private $merchantId;
+    protected $merchantId;
     /**
      * @var string
      */
-    private $merchantWalletId;
+    protected $merchantWalletId;
     /**
      * @var string
      */
-    private $normalReturnUrl;
+    protected $normalReturnUrl;
     /**
      * @var string
      */
-    private $orderChannel;
+    protected $orderChannel;
     /**
      * @var string
      */
-    private $orderId;
+    protected $orderId;
     /**
      * @var array
      */
-    private $paymentMeanBrandList;
+    protected $paymentMeanBrandList;
     /**
      * @var string
      */
-    private $transactionReference;
+    protected $transactionReference;
     /**
      * @var string
      */
-    private $seal;
+    protected $seal;
     /**
      * @var string
      */
-    private $statementReference;
+    protected $statementReference;
     /**
      * @var string
      */
-    private $templateName;
+    protected $templateName;
     /**
      * @var PaypageData
      */
-    private $paypageData;
+    protected $paypageData;
 
     /**
      * PaypageRequest constructor.

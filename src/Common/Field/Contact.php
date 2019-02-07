@@ -12,31 +12,31 @@ class Contact extends Field
     /**
      * @var string
      */
-    private $email;
+    protected $email;
     /**
      * @var string
      */
-    private $firstname;
+    protected $firstname;
     /**
      * @var string
      */
-    private $gender;
+    protected $gender;
     /**
      * @var string
      */
-    private $lastname;
+    protected $lastname;
     /**
      * @var string
      */
-    private $mobile;
+    protected $mobile;
     /**
      * @var string
      */
-    private $phone;
+    protected $phone;
     /**
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * @ return string|null
