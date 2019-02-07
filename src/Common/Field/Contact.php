@@ -3,20 +3,45 @@
 namespace Worldline\Sips\Common\Field;
 
 
-class Contact
+/**
+ * Class Contact
+ * @package Worldline\Sips\Common\Field
+ */
+class Contact extends Field
 {
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $firstname;
+    /**
+     * @var string
+     */
     private $gender;
+    /**
+     * @var string
+     */
     private $lastname;
+    /**
+     * @var string
+     */
     private $mobile;
+    /**
+     * @var string
+     */
     private $phone;
+    /**
+     * @var string
+     */
     private $title;
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -30,9 +55,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -46,9 +71,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getGender(): string
+    public function getGender(): ?string
     {
         return $this->gender;
     }
@@ -62,9 +87,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
@@ -78,9 +103,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getMobile(): string
+    public function getMobile(): ?string
     {
         return $this->mobile;
     }
@@ -94,9 +119,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -110,9 +135,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @ return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -125,18 +150,4 @@ class Contact
         $this->title = $title;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray(): array
-    {
-        $array = [];
-        foreach ($this as $key => $value) {
-            if ($value != null) {
-                $array[$key] = $value;
-            }
-        }
-        ksort($array);
-        return $array;
-    }
 }

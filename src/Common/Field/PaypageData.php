@@ -3,14 +3,14 @@
 namespace Worldline\Sips\Common\Field;
 
 
-class PaypageData
+class PaypageData extends Field
 {
     private $bypassReceiptPage;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getBypassReceiptPage(): bool
+    public function getBypassReceiptPage(): ?bool
     {
         if ($this->bypassReceiptPage == "true") {
             return true;
@@ -20,29 +20,17 @@ class PaypageData
     }
 
     /**
-     * @param mixed $bypassReceiptPage
+     * @param bool $bypassReceiptPage
+     * @return PaypageData
      */
-    public function setBypassReceiptPage(bool $bypassReceiptPage)
+    public function setBypassReceiptPage(bool $bypassReceiptPage): PaypageData
     {
         if ($bypassReceiptPage) {
             $this->bypassReceiptPage = "true";
         } else {
             $this->bypassReceiptPage = "false";
         }
+        return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray(): array
-    {
-        $array = [];
-        foreach ($this as $key => $value) {
-            if ($value != null) {
-                $array[$key] = $value;
-            }
-        }
-        ksort($array);
-        return $array;
-    }
 }

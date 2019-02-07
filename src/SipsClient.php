@@ -14,9 +14,21 @@ use Worldline\Sips\Paypage\PaypageResult;
 
 class SipsClient
 {
+    /**
+     * @var SipsEnvironment
+     */
     private $environment;
+    /**
+     * @var string
+     */
     private $merchantId;
+    /**
+     * @var string
+     */
     private $secretKey;
+    /**
+     * @var int
+     */
     private $keyVersion;
 
     /**
@@ -33,9 +45,9 @@ class SipsClient
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getEnvironment(): string
+    public function getEnvironment(): ?string
     {
         return $this->environment;
     }
@@ -82,9 +94,9 @@ class SipsClient
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSecretKey(): string
+    public function getSecretKey(): ?string
     {
         return $this->secretKey;
     }
@@ -98,9 +110,9 @@ class SipsClient
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMerchantId() : string
+    public function getMerchantId(): ?string
     {
         return $this->merchantId;
     }
@@ -114,9 +126,9 @@ class SipsClient
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getKeyVersion() : int
+    public function getKeyVersion(): ?int
     {
         return $this->keyVersion;
     }

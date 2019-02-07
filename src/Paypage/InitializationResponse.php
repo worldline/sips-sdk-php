@@ -2,6 +2,14 @@
 
 namespace Worldline\Sips\Paypage;
 
+/**
+ * Class InitializationResponse
+ * @package Worldline\Sips\Paypage
+ */
+/**
+ * Class InitializationResponse
+ * @package Worldline\Sips\Paypage
+ */
 class InitializationResponse
 {
     private $errorFieldName;
@@ -50,68 +58,70 @@ class InitializationResponse
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getErrorFieldName()
+    public function getErrorFieldName(): ?string
     {
         return $this->errorFieldName;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getRedirectionData()
+    public function getRedirectionData(): ?string
     {
         return $this->redirectionData;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getRedirectionStatusCode()
+    public function getRedirectionStatusCode(): ?string
     {
         return $this->redirectionStatusCode;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getRedirectionStatusMessage()
+    public function getRedirectionStatusMessage(): ?string
     {
         return $this->redirectionStatusMessage;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getRedirectionUrl()
+    public function getRedirectionUrl(): ?string
     {
         return $this->redirectionUrl;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getRedirectionVersion()
+    public function getRedirectionVersion(): ?string
     {
         return $this->redirectionVersion;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getResponseCode(): string
+    public function getResponseCode(): ?string
     {
         return $this->responseCode;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getSeal()
+    public function getSeal(): ?string
     {
         return $this->seal;
     }
+
+
 
     /**
      * @return array

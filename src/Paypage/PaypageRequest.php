@@ -11,7 +11,7 @@ use Worldline\Sips\Common\Field\PaypageData;
  * Class PaypageRequest
  * @package Worldline\Sips\Paypage
  */
-class PaypageRequest
+class PaypageRequest extends SipsMessage
 {
     /**
      * @var string
@@ -163,9 +163,9 @@ class PaypageRequest
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getAmount(): int
+    public function getAmount(): ?int
     {
         return $this->amount;
     }
@@ -181,9 +181,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAutomaticResponseUrl(): string
+    public function getAutomaticResponseUrl(): ?string
     {
         return $this->automaticResponseUrl;
     }
@@ -199,9 +199,9 @@ class PaypageRequest
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
-    public function getBillingAddress(): Address
+    public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
     }
@@ -217,9 +217,9 @@ class PaypageRequest
     }
 
     /**
-     * @return Contact
+     * @return Contact|null
      */
-    public function getBillingContact(): Contact
+    public function getBillingContact(): ?Contact
     {
         return $this->billingContact;
     }
@@ -235,9 +235,9 @@ class PaypageRequest
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCaptureDay(): int
+    public function getCaptureDay(): ?int
     {
         return $this->captureDay;
     }
@@ -253,9 +253,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCaptureMode(): string
+    public function getCaptureMode(): ?string
     {
         return $this->captureMode;
     }
@@ -275,9 +275,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
@@ -348,9 +348,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerId(): string
+    public function getCustomerId(): ?string
     {
         return $this->customerId;
     }
@@ -368,7 +368,7 @@ class PaypageRequest
     /**
      * @return Address
      */
-    public function getCustomerAddress(): Address
+    public function getCustomerAddress(): ?Address
     {
         return $this->customerAddress;
     }
@@ -384,9 +384,9 @@ class PaypageRequest
     }
 
     /**
-     * @return Contact
+     * @return Contact|null
      */
-    public function getCustomerContact(): Contact
+    public function getCustomerContact(): ?Contact
     {
         return $this->customerContact;
     }
@@ -402,9 +402,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerLanguage(): string
+    public function getCustomerLanguage(): ?string
     {
         return $this->customerLanguage;
     }
@@ -460,7 +460,7 @@ class PaypageRequest
     /**
      * @return Address
      */
-    public function getDeliveryAddress(): Address
+    public function getDeliveryAddress(): ?Address
     {
         return $this->deliveryAddress;
     }
@@ -476,9 +476,9 @@ class PaypageRequest
     }
 
     /**
-     * @return Contact
+     * @return Contact|null
      */
-    public function getDeliveryContact(): Contact
+    public function getDeliveryContact(): ?Contact
     {
         return $this->deliveryContact;
     }
@@ -496,7 +496,7 @@ class PaypageRequest
     /**
      * @return Address
      */
-    public function getHolderAddress(): Address
+    public function getHolderAddress(): ?Address
     {
         return $this->holderAddress;
     }
@@ -512,9 +512,9 @@ class PaypageRequest
     }
 
     /**
-     * @return Contact
+     * @return Contact|null
      */
-    public function getHolderContact(): Contact
+    public function getHolderContact(): ?Contact
     {
         return $this->holderContact;
     }
@@ -530,9 +530,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getInterfaceVersion(): string
+    public function getInterfaceVersion(): ?string
     {
         return $this->interfaceVersion;
     }
@@ -548,9 +548,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIntermediateServiceProviderId(): string
+    public function getIntermediateServiceProviderId(): ?string
     {
         return $this->intermediateServiceProviderId;
     }
@@ -566,9 +566,9 @@ class PaypageRequest
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getKeyVersion(): int
+    public function getKeyVersion(): ?int
     {
         return $this->keyVersion;
     }
@@ -584,9 +584,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantId(): string
+    public function getMerchantId(): ?string
     {
         return $this->merchantId;
     }
@@ -602,9 +602,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantWalletId(): string
+    public function getMerchantWalletId(): ?string
     {
         return $this->merchantWalletId;
     }
@@ -620,9 +620,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNormalReturnUrl(): string
+    public function getNormalReturnUrl(): ?string
     {
         return $this->normalReturnUrl;
     }
@@ -638,9 +638,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrderChannel(): string
+    public function getOrderChannel(): ?string
     {
         return $this->orderChannel;
     }
@@ -660,9 +660,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
@@ -678,9 +678,9 @@ class PaypageRequest
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getPaymentMeanBrandList(): array
+    public function getPaymentMeanBrandList(): ?array
     {
         return $this->paymentMeanBrandList;
     }
@@ -696,9 +696,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionReference(): string
+    public function getTransactionReference(): ?string
     {
         return $this->transactionReference;
     }
@@ -714,9 +714,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSeal(): string
+    public function getSeal(): ?string
     {
         return $this->seal;
     }
@@ -732,9 +732,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatementReference(): string
+    public function getStatementReference(): ?string
     {
         return $this->statementReference;
     }
@@ -750,9 +750,9 @@ class PaypageRequest
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTemplateName(): string
+    public function getTemplateName(): ?string
     {
         return $this->templateName;
     }
@@ -770,7 +770,7 @@ class PaypageRequest
     /**
      * @return PaypageData
      */
-    public function getPaypageData(): PaypageData
+    public function getPaypageData(): ?PaypageData
     {
         return $this->paypageData;
     }
@@ -783,28 +783,6 @@ class PaypageRequest
     {
         $this->paypageData = $paypageData;
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function toArray(): array
-    {
-        $array = [];
-        foreach ($this as $key => $value) {
-            if ($value != null && $key != "serviceUrl" && $key != "paymentMeanBrandList") {
-                if (is_int($value) || is_string($value)) {
-                    $array[$key] = $value;
-                } else {
-                    $array[$key] = $value->toArray();
-                }
-            } elseif ($key == "paymentMeanBrandList" && !is_null($value)) {
-                $array[$key] = $value;
-            }
-        }
-        ksort($array);
-
-        return $array;
     }
 
 }
