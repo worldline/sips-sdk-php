@@ -7,37 +7,131 @@ use Worldline\Sips\Common\Field\Address;
 use Worldline\Sips\Common\Field\Contact;
 use Worldline\Sips\Common\Field\PaypageData;
 
+/**
+ * Class PaypageRequest
+ * @package Worldline\Sips\Paypage
+ */
 class PaypageRequest
 {
+    /**
+     * @var string
+     */
     public $serviceUrl = "rs-services/v2/paymentInit";
+    /**
+     * @var int
+     */
     private $amount;
+    /**
+     * @var string
+     */
     private $automaticResponseUrl;
+    /**
+     * @var Address
+     */
     private $billingAddress;
+    /**
+     * @var Contact
+     */
     private $billingContact;
+    /**
+     * @var int
+     */
     private $captureDay;
+    /**
+     * @var string
+     */
     private $captureMode;
+    /**
+     * @var string
+     */
     private $currencyCode;
+    /**
+     * @var string
+     */
     private $customerId;
+    /**
+     * @var Address
+     */
     private $customerAddress;
+    /**
+     * @var Contact
+     */
     private $customerContact;
+    /**
+     * @var string
+     */
     private $customerLanguage;
+    /**
+     * @var Address
+     */
     private $deliveryAddress;
+    /**
+     * @var Contact
+     */
     private $deliveryContact;
+    /**
+     * @var Address
+     */
     private $holderAddress;
+    /**
+     * @var Contact
+     */
     private $holderContact;
+    /**
+     * @var string
+     */
     private $interfaceVersion;
-    private $intermediateServiceProvider;
+    /**
+     * @var string
+     */
+    private $intermediateServiceProviderId;
+    /**
+     * @var int
+     */
     private $keyVersion;
+    /**
+     * @var string
+     */
     private $merchantId;
+    /**
+     * @var string
+     */
     private $merchantWalletId;
+    /**
+     * @var string
+     */
     private $normalReturnUrl;
+    /**
+     * @var string
+     */
     private $orderChannel;
+    /**
+     * @var string
+     */
     private $orderId;
+    /**
+     * @var array
+     */
     private $paymentMeanBrandList;
+    /**
+     * @var string
+     */
     private $transactionReference;
+    /**
+     * @var string
+     */
     private $seal;
+    /**
+     * @var string
+     */
     private $statementReference;
+    /**
+     * @var string
+     */
     private $templateName;
+    /**
+     * @var PaypageData
+     */
     private $paypageData;
 
     /**
@@ -49,12 +143,23 @@ class PaypageRequest
         $this->setTransactionReference($this->generateReference());
     }
 
+    /**
+     * @return string
+     */
     public function generateReference(): string
     {
         $microtime = explode(' ', microtime());
         $microtime[0] = $microtime[0] * 1000000;
         $transactionReference = $microtime[1] . $microtime[0];
         return $transactionReference;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceUrl(): string
+    {
+        return $this->serviceUrl;
     }
 
     /**
@@ -67,10 +172,12 @@ class PaypageRequest
 
     /**
      * @param int $amount
+     * @return PaypageRequest
      */
-    public function setAmount(int $amount)
+    public function setAmount(int $amount): PaypageRequest
     {
         $this->amount = $amount;
+        return $this;
     }
 
     /**
@@ -83,10 +190,12 @@ class PaypageRequest
 
     /**
      * @param string $automaticResponseUrl
+     * @return PaypageRequest
      */
-    public function setAutomaticResponseUrl(string $automaticResponseUrl)
+    public function setAutomaticResponseUrl(string $automaticResponseUrl): PaypageRequest
     {
         $this->automaticResponseUrl = $automaticResponseUrl;
+        return $this;
     }
 
     /**
@@ -99,10 +208,12 @@ class PaypageRequest
 
     /**
      * @param Address $billingAddress
+     * @return PaypageRequest
      */
-    public function setBillingAddress(Address $billingAddress)
+    public function setBillingAddress(Address $billingAddress): PaypageRequest
     {
         $this->billingAddress = $billingAddress;
+        return $this;
     }
 
     /**
@@ -115,10 +226,12 @@ class PaypageRequest
 
     /**
      * @param Contact $billingContact
+     * @return PaypageRequest
      */
-    public function setBillingContact(Contact $billingContact)
+    public function setBillingContact(Contact $billingContact): PaypageRequest
     {
         $this->billingContact = $billingContact;
+        return $this;
     }
 
     /**
@@ -131,10 +244,12 @@ class PaypageRequest
 
     /**
      * @param int $captureDay
+     * @return PaypageRequest
      */
-    public function setCaptureDay(int $captureDay)
+    public function setCaptureDay(int $captureDay): PaypageRequest
     {
         $this->captureDay = $captureDay;
+        return $this;
     }
 
     /**
@@ -147,11 +262,13 @@ class PaypageRequest
 
     /**
      * @param string $captureMode
+     * @return PaypageRequest
      */
-    public function setCaptureMode(string $captureMode)
+    public function setCaptureMode(string $captureMode): PaypageRequest
     {
         if (in_array($captureMode, ['AUTHOR_CAPTURE', 'IMMEDIATE', 'VALIDATION'])) {
             $this->captureMode = $captureMode;
+            return $this;
         } else {
             throw new \InvalidArgumentException("Invalid captureMode. Choose between AUTHOR_CAPTURE, IMMEDIATE or VALIDATION.");
         }
@@ -167,8 +284,9 @@ class PaypageRequest
 
     /**
      * @param string $currencyCode
+     * @return PaypageRequest
      */
-    public function setCurrencyCode(string $currencyCode)
+    public function setCurrencyCode(string $currencyCode): PaypageRequest
     {
         $validCurrencyCodes = [
             "ARS" => "032",
@@ -220,8 +338,10 @@ class PaypageRequest
         ];
         if (key_exists($currencyCode, $validCurrencyCodes)) {
             $this->currencyCode = $validCurrencyCodes[$currencyCode];
+            return $this;
         } elseif (in_array($currencyCode, $validCurrencyCodes)) {
             $this->currencyCode = $currencyCode;
+            return $this;
         } else {
             throw new \InvalidArgumentException("Invalid currencyCode. Select a valid code from the data dictionary.");
         }
@@ -237,10 +357,12 @@ class PaypageRequest
 
     /**
      * @param string $customerId
+     * @return PaypageRequest
      */
-    public function setCustomerId(string $customerId)
+    public function setCustomerId(string $customerId): PaypageRequest
     {
         $this->customerId = $customerId;
+        return $this;
     }
 
     /**
@@ -253,10 +375,12 @@ class PaypageRequest
 
     /**
      * @param Address $customerAddress
+     * @return PaypageRequest
      */
-    public function setCustomerAddress(Address $customerAddress)
+    public function setCustomerAddress(Address $customerAddress): PaypageRequest
     {
         $this->customerAddress = $customerAddress;
+        return $this;
     }
 
     /**
@@ -269,10 +393,12 @@ class PaypageRequest
 
     /**
      * @param Contact $customerContact
+     * @return PaypageRequest
      */
-    public function setCustomerContact(Contact $customerContact)
+    public function setCustomerContact(Contact $customerContact): PaypageRequest
     {
         $this->customerContact = $customerContact;
+        return $this;
     }
 
     /**
@@ -285,9 +411,9 @@ class PaypageRequest
 
     /**
      * @param string $customerLanguage
-     * @throws \Exception
+     * @return PaypageRequest
      */
-    public function setCustomerLanguage(string $customerLanguage)
+    public function setCustomerLanguage(string $customerLanguage): PaypageRequest
     {
         $validCustomerLanguages = [
             "bg",
@@ -325,8 +451,9 @@ class PaypageRequest
         ];
         if (in_array($customerLanguage, $validCustomerLanguages)) {
             $this->customerLanguage = $customerLanguage;
+            return $this;
         } else {
-            throw new \Exception("Invalid currencyCode. Select a valid code from the data dictionary.");
+            throw new \InvalidArgumentException("Invalid customerLanguage. Select a valid code from the data dictionary.");
         }
     }
 
@@ -340,10 +467,12 @@ class PaypageRequest
 
     /**
      * @param Address $deliveryAddress
+     * @return PaypageRequest
      */
-    public function setDeliveryAddress(Address $deliveryAddress)
+    public function setDeliveryAddress(Address $deliveryAddress): PaypageRequest
     {
         $this->deliveryAddress = $deliveryAddress;
+        return $this;
     }
 
     /**
@@ -356,10 +485,12 @@ class PaypageRequest
 
     /**
      * @param Contact $deliveryContact
+     * @return PaypageRequest
      */
-    public function setDeliveryContact(Contact $deliveryContact)
+    public function setDeliveryContact(Contact $deliveryContact): PaypageRequest
     {
         $this->deliveryContact = $deliveryContact;
+        return $this;
     }
 
     /**
@@ -372,10 +503,12 @@ class PaypageRequest
 
     /**
      * @param Address $holderAddress
+     * @return PaypageRequest
      */
-    public function setHolderAddress(Address $holderAddress)
+    public function setHolderAddress(Address $holderAddress): PaypageRequest
     {
         $this->holderAddress = $holderAddress;
+        return $this;
     }
 
     /**
@@ -388,10 +521,12 @@ class PaypageRequest
 
     /**
      * @param Contact $holderContact
+     * @return PaypageRequest
      */
-    public function setHolderContact(Contact $holderContact)
+    public function setHolderContact(Contact $holderContact): PaypageRequest
     {
         $this->holderContact = $holderContact;
+        return $this;
     }
 
     /**
@@ -404,29 +539,31 @@ class PaypageRequest
 
     /**
      * @param string $interfaceVersion
+     * @return PaypageRequest
      */
-    public function setInterfaceVersion(string $interfaceVersion)
+    public function setInterfaceVersion(string $interfaceVersion): PaypageRequest
     {
         $this->interfaceVersion = $interfaceVersion;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getIntermediateServiceProvider() : string
+    public function getIntermediateServiceProviderId(): string
     {
-        return $this->intermediateServiceProvider;
+        return $this->intermediateServiceProviderId;
     }
 
     /**
-     * @param string $intermediateServiceProvider
+     * @param string $intermediateServiceProviderId
+     * @return PaypageRequest
      */
-    public function setIntermediateServiceProvider(string $intermediateServiceProvider)
+    public function setIntermediateServiceProviderId(string $intermediateServiceProviderId): PaypageRequest
     {
-        $this->intermediateServiceProvider = $intermediateServiceProvider;
+        $this->intermediateServiceProviderId = $intermediateServiceProviderId;
+        return $this;
     }
-
-
 
     /**
      * @return int
@@ -438,10 +575,12 @@ class PaypageRequest
 
     /**
      * @param int $keyVersion
+     * @return PaypageRequest
      */
-    public function setKeyVersion(int $keyVersion)
+    public function setKeyVersion(int $keyVersion): PaypageRequest
     {
         $this->keyVersion = $keyVersion;
+        return $this;
     }
 
     /**
@@ -454,10 +593,12 @@ class PaypageRequest
 
     /**
      * @param string $merchantId
+     * @return PaypageRequest
      */
-    public function setMerchantId(string $merchantId)
+    public function setMerchantId(string $merchantId): PaypageRequest
     {
         $this->merchantId = $merchantId;
+        return $this;
     }
 
     /**
@@ -470,10 +611,12 @@ class PaypageRequest
 
     /**
      * @param string $merchantWalletId
+     * @return PaypageRequest
      */
-    public function setMerchantWalletId(string $merchantWalletId)
+    public function setMerchantWalletId(string $merchantWalletId): PaypageRequest
     {
         $this->merchantWalletId = $merchantWalletId;
+        return $this;
     }
 
     /**
@@ -486,10 +629,12 @@ class PaypageRequest
 
     /**
      * @param string $normalReturnUrl
+     * @return PaypageRequest
      */
-    public function setNormalReturnUrl(string $normalReturnUrl)
+    public function setNormalReturnUrl(string $normalReturnUrl): PaypageRequest
     {
         $this->normalReturnUrl = $normalReturnUrl;
+        return $this;
     }
 
     /**
@@ -502,11 +647,13 @@ class PaypageRequest
 
     /**
      * @param string $orderChannel
+     * @return PaypageRequest
      */
-    public function setOrderChannel(string $orderChannel)
+    public function setOrderChannel(string $orderChannel): PaypageRequest
     {
         if (in_array($orderChannel, ["INTERNET", "MOTO", "INAPP"])) {
             $this->orderChannel = $orderChannel;
+            return $this;
         } else {
             throw new \InvalidArgumentException("Invalid orderChannel. Choose between INTERNET, MOTO or INAPP");
         }
@@ -522,20 +669,30 @@ class PaypageRequest
 
     /**
      * @param string $orderId
+     * @return PaypageRequest
      */
-    public function setOrderId(string $orderId)
+    public function setOrderId(string $orderId): PaypageRequest
     {
         $this->orderId = $orderId;
+        return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getPaymentMeanBrandList(): array
     {
         return $this->paymentMeanBrandList;
     }
 
-    public function setPaymentMeanBrandList(array $paymentMeanBrandList)
+    /**
+     * @param array $paymentMeanBrandList
+     * @return PaypageRequest
+     */
+    public function setPaymentMeanBrandList(array $paymentMeanBrandList): PaypageRequest
     {
         $this->paymentMeanBrandList = $paymentMeanBrandList;
+        return $this;
     }
 
     /**
@@ -548,10 +705,12 @@ class PaypageRequest
 
     /**
      * @param string $transactionReference
+     * @return PaypageRequest
      */
-    public function setTransactionReference(string $transactionReference)
+    public function setTransactionReference(string $transactionReference): PaypageRequest
     {
         $this->transactionReference = $transactionReference;
+        return $this;
     }
 
     /**
@@ -564,10 +723,12 @@ class PaypageRequest
 
     /**
      * @param string $seal
+     * @return PaypageRequest
      */
-    public function setSeal(string $seal)
+    public function setSeal(string $seal): PaypageRequest
     {
         $this->seal = $seal;
+        return $this;
     }
 
     /**
@@ -580,10 +741,12 @@ class PaypageRequest
 
     /**
      * @param string $statementReference
+     * @return PaypageRequest
      */
-    public function setStatementReference(string $statementReference)
+    public function setStatementReference(string $statementReference): PaypageRequest
     {
         $this->statementReference = $statementReference;
+        return $this;
     }
 
     /**
@@ -596,10 +759,12 @@ class PaypageRequest
 
     /**
      * @param string $templateName
+     * @return PaypageRequest
      */
-    public function setTemplateName(string $templateName)
+    public function setTemplateName(string $templateName): PaypageRequest
     {
         $this->templateName = $templateName;
+        return $this;
     }
 
     /**
@@ -612,18 +777,12 @@ class PaypageRequest
 
     /**
      * @param PaypageData $paypageData
+     * @return PaypageRequest
      */
-    public function setPaypageData(PaypageData $paypageData)
+    public function setPaypageData(PaypageData $paypageData): PaypageRequest
     {
         $this->paypageData = $paypageData;
-    }
-
-    /**
-     * @return string
-     */
-    public function getServiceUrl(): string
-    {
-        return $this->serviceUrl;
+        return $this;
     }
 
     /**
@@ -647,6 +806,5 @@ class PaypageRequest
 
         return $array;
     }
-
 
 }
