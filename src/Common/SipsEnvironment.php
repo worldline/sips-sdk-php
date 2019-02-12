@@ -2,15 +2,27 @@
 
 namespace Worldline\Sips\Common;
 
-
 use Worldline\Sips\Common\Exception\InvalidEnvironmentException;
 
 class SipsEnvironment
 {
+    const PAYPAGE    = 'paypage';
+    const OFFICE     = 'office';
+    const SIMULATION = 'SIMU';
+    const TEST       = 'TEST';
+    const PRODUCTION = 'PROD';
+
     private $possibleEnvironments = [
-        "SIMU" => "https://payment-webinit.simu.sips-services.com/",
-        "TEST" => "https://payment-webinit.test.sips-services.com/",
-        "PROD" => "https://payment-webinit.sips-services.com/",
+        self::PAYPAGE => [
+            self::SIMULATION => "https://payment-webinit.simu.sips-services.com/",
+            self::TEST       => "https://payment-webinit.test.sips-services.com/",
+            self::PRODUCTION => "https://payment-webinit.sips-services.com/",
+        ],
+        self::OFFICE  => [
+            self::SIMULATION => "https://office-server.simu.sips-services.com/",
+            self::TEST       => "https://office-server.test.sips-services.com/",
+            self::PRODUCTION => "https://office-server.sips-services.com/",
+        ]
     ];
     private $environment;
 
@@ -21,26 +33,20 @@ class SipsEnvironment
      */
     public function __construct(string $environment)
     {
-        if (key_exists(strtoupper($environment), $this->possibleEnvironments)) {
-            $this->environment = $this->possibleEnvironments[$environment];
-        } else {
-            throw new InvalidEnvironmentException();
+        if (!key_exists($environment, $this->possibleEnvironments[self::PAYPAGE])) {
+            throw new InvalidEnvironmentException('Invalid environment "' . $environment . '"');
         }
+        $this->environment = $environment;
     }
 
     /**
      * @return string
      */
-    public function getEnvironment(): string
+    public function getEnvironment(string $connecter): string
     {
-        return $this->environment;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return $this->environment;
+        if (!key_exists($connecter, $this->possibleEnvironments)) {
+            throw new InvalidEnvironmentException('Invalid connecter "' . $connecter . '"');
+        }
+        return $this->possibleEnvironments[$connecter][$this->environment];
     }
 }

@@ -20,7 +20,7 @@ class SipsMessage extends \Worldline\Sips\SipsRequest
     {
         $array    = [];
         foreach ($this as $key => $value) {
-            if (is_null($value) || $key === 'serviceUrl') {
+            if (is_null($value) || $key === 'serviceUrl' || $key === 'connecter') {
                 // null values are excluded from the array export
                 continue;
             }

@@ -124,6 +124,7 @@ class PaypageRequest extends SipsMessage
      */
     public function __construct()
     {
+        $this->connecter = \Worldline\Sips\Common\SipsEnvironment::PAYPAGE;
         $this->serviceUrl       = "rs-services/v2/paymentInit";
         $this->interfaceVersion = "IR_WS_2.23";
         $this->setTransactionReference($this->generateReference());
