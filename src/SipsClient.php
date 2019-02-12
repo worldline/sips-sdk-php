@@ -75,11 +75,12 @@ class SipsClient
 
     /**
      * @param SipsMessage $paymentRequest
-     * @return InitializationResponse
+     * @return array|null
      * @throws \Exception
      */
-    public function initialize(SipsMessage &$sipsRequest): InitializationResponse
+    public function initialize(SipsMessage &$sipsRequest): ?array
     {
+        $data = null;
         $sipsRequest->setMerchantId($this->getMerchantId());
         $sipsRequest->setKeyVersion($this->getKeyVersion());
 
@@ -88,7 +89,7 @@ class SipsClient
         $sealCalculator->calculateSeal($sipsRequest, $this->secretKey, $sealAlgorithm);
         $json = json_encode($sipsRequest->toArray());
         $this->lastRequestAsJson = $json;
-        $client = new Client(["base_uri" => $this->environment->getEnvironment()]);
+        $client = new Client(["base_uri" => $this->environment->getEnvironment($sipsRequest->getConnecter())]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
@@ -102,9 +103,10 @@ class SipsClient
             if (!$validSeal) {
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
+            $data = json_decode($response->getBody()->getContents(), true);            
         }
 
-        return $initialisationResponse;
+        return $data;
     }
 
     /**
