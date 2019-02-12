@@ -8,6 +8,12 @@ abstract class SipsRequest
 {
 
     /**
+     * Connecter where to send the request
+     * @var string
+     */
+    public $connecter;
+
+    /**
      *
      * @var string
      */
@@ -42,6 +48,15 @@ abstract class SipsRequest
      * @var string
      */
     protected $sealAlgorithm;
+
+    /**
+     *
+     * @return string
+     */
+    public function getConnecter():string
+    {
+        return $this->connecter;
+    }
 
     /**
      *
