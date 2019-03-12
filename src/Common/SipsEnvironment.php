@@ -12,7 +12,7 @@ class SipsEnvironment
     const TEST       = 'TEST';
     const PRODUCTION = 'PROD';
 
-    private $possibleEnvironments = [
+    protected $possibleEnvironments = [
         self::PAYPAGE => [
             self::SIMULATION => "https://payment-webinit.simu.sips-services.com/",
             self::TEST       => "https://payment-webinit.test.sips-services.com/",
@@ -24,7 +24,7 @@ class SipsEnvironment
             self::PRODUCTION => "https://office-server.sips-services.com/",
         ]
     ];
-    private $environment;
+    protected $environment;
 
     /**
      * SipsEnvironment constructor.

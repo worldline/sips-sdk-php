@@ -25,7 +25,7 @@ class JsonSealCalculator
         }
     }
 
-    private function encrypt(string $sealData, string $secretKey, string $algorithm = self::ALGORITHM_DEFAULT): string
+    protected function encrypt(string $sealData, string $secretKey, string $algorithm = self::ALGORITHM_DEFAULT): string
     {
         $sealData = utf8_encode($sealData);
         $secretKey = utf8_encode($secretKey);
