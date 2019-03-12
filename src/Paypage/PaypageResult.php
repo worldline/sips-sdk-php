@@ -22,6 +22,7 @@ class PaypageResult
     protected $cardProductName;
     protected $cardProductProfile;
     protected $complementaryCode;
+    protected $complementaryInfo;
     protected $creditorId;
     protected $currencyCode;
     protected $customerBusinessName;
@@ -261,7 +262,16 @@ class PaypageResult
     }
 
     /**
-     * @return null|string
+     *
+     * @return string
+     */
+    public function getComplementaryInfo(): string
+    {
+        return $this->complementaryInfo;
+    }
+
+    /**
+     * @return string|null
      */
     public function getCreditorId(): ?string
     {
