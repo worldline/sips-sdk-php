@@ -113,6 +113,7 @@ class PaypageRequest extends SipsMessage
      * @var PaypageData
      */
     protected $paypageData;
+    protected $bypassReceiptPage;
 
     const PAYMENT_MEAN_BRAND_CB = 'CB';
     const PAYMENT_MEAN_BRAND_MASTERCARD = 'MASTERCARD';
@@ -558,6 +559,15 @@ class PaypageRequest extends SipsMessage
     public function getNormalReturnUrl(): ?string
     {
         return $this->normalReturnUrl;
+    }
+
+    /**
+     *
+     * @return bool
+     */
+    public function getBypassReceiptPage(): bool
+    {
+        return ($this->bypassReceiptPage === 'true');
     }
 
     /**
