@@ -12,14 +12,14 @@ namespace Worldline\Sips\Paypage;
  */
 class InitializationResponse
 {
-    private $errorFieldName;
-    private $redirectionData;
-    private $redirectionStatusCode;
-    private $redirectionStatusMessage;
-    private $redirectionUrl;
-    private $redirectionVersion;
-    private $responseCode;
-    private $seal;
+    protected $errorFieldName;
+    protected $redirectionData;
+    protected $redirectionStatusCode;
+    protected $redirectionStatusMessage;
+    protected $redirectionUrl;
+    protected $redirectionVersion;
+    protected $responseCode;
+    protected $seal;
 
     /**
      * InitializationResponse constructor.
