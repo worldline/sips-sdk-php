@@ -265,7 +265,7 @@ class PaypageResult
      *
      * @return string
      */
-    public function getComplementaryInfo(): string
+    public function getComplementaryInfo(): ?string
     {
         return $this->complementaryInfo;
     }
