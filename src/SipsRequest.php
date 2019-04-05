@@ -4,7 +4,7 @@ namespace Worldline\Sips;
 /**
  *
  */
-abstract class SipsRequest
+abstract class SipsRequest extends Common\Field
 {
 
     /**
@@ -168,8 +168,20 @@ abstract class SipsRequest
 
     /**
      *
-     * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
-    abstract protected function toArray(): array;
+    public function toArray(): array
+    {
+        $array    = parent::toArray();
+        
+        unset($array['serviceUrl']);
+        unset($array['connecter']);
+
+        if (isset($array['s10TransactionReference'])) {
+            unset($array['transactionReference']);
+        }
+        ksort($array);
+
+        return $array;
+    }
 }
