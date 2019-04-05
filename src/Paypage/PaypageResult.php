@@ -2,7 +2,6 @@
 
 namespace Worldline\Sips\Paypage;
 
-
 class PaypageResult
 {
     protected $acquirerNativeResponseCode;
@@ -105,6 +104,12 @@ class PaypageResult
     protected $transactionDateTime;
     protected $transactionOrigin;
     protected $transactionReference;
+
+    /**
+     *
+     * @var \Worldline\Sips\Common\Field\S10TransactionReference
+     */
+    protected $s10TransactionReference;
     protected $walletType;
 
     /**
@@ -113,17 +118,22 @@ class PaypageResult
      */
     public function __construct(string $data)
     {
-        $data = explode('|', $data);
+        $data      = explode('|', $data);
         $dataArray = [];
         foreach ($data as $value) {
-            $value = explode('=', $value, 2);
+            $value                = explode('=', $value, 2);
             $dataArray[$value[0]] = $value[1];
         }
         foreach ($dataArray as $key => $value) {
             $this->$key = $value;
         }
-    }
 
+        if (!empty($this->s10TransactionId)) {
+            $this->s10TransactionReference = new \Worldline\Sips\Common\Field\S10TransactionReference();
+            $this->s10TransactionReference->setS10TransactionId($this->s10TransactionId);
+            $this->s10TransactionReference->setS10TransactionIdDate($this->s10TransactionIdDate);
+        }
+    }
 
     /**
      * @return null|string
@@ -809,22 +819,6 @@ class PaypageResult
     /**
      * @return null|string
      */
-    public function getS10TransactionId(): ?string
-    {
-        return $this->s10TransactionId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getS10TransactionIdDate(): ?string
-    {
-        return $this->s10TransactionIdDate;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getS10TransactionIdsList(): ?string
     {
         return $this->s10TransactionIdsList;
@@ -934,5 +928,14 @@ class PaypageResult
         return $this->walletType;
     }
 
+    public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
+    {
+        return $this->s10TransactionReference;
+    }
 
+    public function setS10TransactionReference(\Worldline\Sips\Common\Field\S10TransactionReference $s10TransactionReference)
+    {
+        $this->s10TransactionReference = $s10TransactionReference;
+        return $this;
+    }
 }

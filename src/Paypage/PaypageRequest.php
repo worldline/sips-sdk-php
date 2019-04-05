@@ -101,9 +101,7 @@ class PaypageRequest extends SipsMessage
      * @var string
      */
     protected $transactionReference;
-    /**
-     * @var string
-     */
+    protected $s10TransactionReference;
     protected $statementReference;
     /**
      * @var string
@@ -710,5 +708,28 @@ class PaypageRequest extends SipsMessage
         $this->paypageData = $paypageData;
         return $this;
     }
+
+    /**
+     *
+     * @param bool $bypass
+     */
+    public function setBypassReceiptPage(bool $bypass)
+    {
+        // Seems that this parameter is a string (A5, restricted value)
+        $this->bypassReceiptPage = ($bypass ? 'true' : 'false');
+    }
+    
+    public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
+    {
+        return $this->s10TransactionReference;
+    }
+
+    public function setS10TransactionReference(\Worldline\Sips\Common\Field\S10TransactionReference $s10TransactionReference)
+    {
+        unset($this->transactionReference);
+        $this->s10TransactionReference = $s10TransactionReference;
+        return $this;
+    }
+
 
 }
