@@ -10,8 +10,8 @@ class JsonSealCalculator
     const ALGORITHM_SHA256      = 'SHA-256';
     const ALGORITHM_HMAC_SHA256 = 'HMAC-SHA-256';
     const ALGORITHM_HMAC_SHA512 = 'HMAC-SHA-512';
-    const ALGORITHM_DEFAULT = self::ALGORITHM_HMAC_SHA256;
-    const EXCLUDED_FIELD = ['seal', 'sealAlgorithm', 'keyVersion'];
+    const ALGORITHM_DEFAULT     = self::ALGORITHM_HMAC_SHA256;
+    const EXCLUDED_FIELD        = ['seal', 'sealAlgorithm', 'keyVersion'];
 
     public function calculateSeal(SipsMessage $sipsMessage, $secretKey, $algorithm = self::ALGORITHM_DEFAULT)
     {
@@ -45,12 +45,12 @@ class JsonSealCalculator
             if (in_array($key, self::EXCLUDED_FIELD)) {
                 continue;
             }
-                if (is_array($value)) {
+            if (is_array($value)) {
                 $sealData .= implode('', $value);
-                        } else {
-                    $sealData .= $value;
-                }
-                }
+            } else {
+                $sealData .= $value;
+            }
+        }
         return $sealData;
     }
 
@@ -63,5 +63,4 @@ class JsonSealCalculator
             return false;
         }
     }
-
 }

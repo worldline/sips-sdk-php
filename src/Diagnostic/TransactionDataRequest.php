@@ -43,6 +43,7 @@ class TransactionDataRequest extends \Worldline\Sips\SipsRequest
 
     public function setS10TransactionReference($s10TransactionReference)
     {
+        unset($this->transactionReference);
         $this->s10TransactionReference = $s10TransactionReference;
         return $this;
     }

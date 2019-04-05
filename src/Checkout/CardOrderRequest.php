@@ -256,7 +256,7 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
         return $this->holderData;
     }
 
-    public function getS10TransactionReference()
+    public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
     {
         return $this->s10TransactionReference;
     }
@@ -618,7 +618,7 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
         return $this;
     }
 
-    public function setS10TransactionReference($s10TransactionReference)
+    public function setS10TransactionReference(\Worldline\Sips\Common\Field\S10TransactionReference $s10TransactionReference)
     {
         $this->s10TransactionReference = $s10TransactionReference;
         return $this;
