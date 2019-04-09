@@ -42,11 +42,11 @@ class JsonSealCalculator
         $sealData = "";
 
         foreach ($array as $key => $value) {
-            if (in_array($key, self::EXCLUDED_FIELD)) {
+            if (in_array($key, self::EXCLUDED_FIELD, true)) {
                 continue;
             }
             if (is_array($value)) {
-                $sealData .= implode('', $value);
+                $sealData .= $this->getSealData($value);
             } else {
                 $sealData .= $value;
             }
