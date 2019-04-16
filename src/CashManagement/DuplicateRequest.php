@@ -55,7 +55,7 @@ class DuplicateRequest extends \Worldline\Sips\SipsRequest
      */
     public function __construct()
     {
-        $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::PAYPAGE;
+        $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/cashManagement/duplicate";
         $this->interfaceVersion = "CR_WS_2.3";
         $this->setTransactionReference($this->generateReference());
