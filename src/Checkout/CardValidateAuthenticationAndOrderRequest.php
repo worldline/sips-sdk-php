@@ -22,12 +22,6 @@ class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsRequ
     protected $redirectionData;
     protected $paResMessage;
     protected $intermediateServiceProviderId;
-    protected $paymentMeanBrand;
-    protected $paymentMeanBrandSelectionStatus;
-    protected $travelContext;
-    protected $orderContext;
-    protected $paymentMeanData;
-    protected $customerAccountHistoric;
 
     /**
      * @author Guiled <guislain.duthieuw@gmail.com>
@@ -64,36 +58,6 @@ class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsRequ
         return $this->intermediateServiceProviderId;
     }
 
-    public function getPaymentMeanBrand()
-    {
-        return $this->paymentMeanBrand;
-    }
-
-    public function getPaymentMeanBrandSelectionStatus()
-    {
-        return $this->paymentMeanBrandSelectionStatus;
-    }
-
-    public function getTravelContext()
-    {
-        return $this->travelContext;
-    }
-
-    public function getOrderContext()
-    {
-        return $this->orderContext;
-    }
-
-    public function getPaymentMeanData()
-    {
-        return $this->paymentMeanData;
-    }
-
-    public function getCustomerAccountHistoric()
-    {
-        return $this->customerAccountHistoric;
-    }
-
     public function setS10TransactionReference(\Worldline\Sips\Common\Field\S10TransactionReference $s10TransactionReference)
     {
         $this->s10TransactionReference = $s10TransactionReference;
@@ -123,42 +87,5 @@ class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsRequ
         $this->intermediateServiceProviderId = $intermediateServiceProviderId;
         return $this;
     }
-
-    public function setPaymentMeanBrand($paymentMeanBrand)
-    {
-        $this->paymentMeanBrand = $paymentMeanBrand;
-        return $this;
-    }
-
-    public function setPaymentMeanBrandSelectionStatus($paymentMeanBrandSelectionStatus)
-    {
-        $this->paymentMeanBrandSelectionStatus = $paymentMeanBrandSelectionStatus;
-        return $this;
-    }
-
-    public function setTravelContext($travelContext)
-    {
-        $this->travelContext = $travelContext;
-        return $this;
-    }
-
-    public function setOrderContext($orderContext)
-    {
-        $this->orderContext = $orderContext;
-        return $this;
-    }
-
-    public function setPaymentMeanData($paymentMeanData)
-    {
-        $this->paymentMeanData = $paymentMeanData;
-        return $this;
-    }
-
-    public function setCustomerAccountHistoric($customerAccountHistoric)
-    {
-        $this->customerAccountHistoric = $customerAccountHistoric;
-        return $this;
-    }
-
 
 }
