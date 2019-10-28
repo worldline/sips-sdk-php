@@ -125,801 +125,801 @@ class PaypageResult
 
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAcquirerNativeResponseCode(): string
+    public function getAcquirerNativeResponseCode(): ?string
     {
         return $this->acquirerNativeResponseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAcquirerResponseCode(): string
+    public function getAcquirerResponseCode(): ?string
     {
         return $this->acquirerResponseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAcquirerResponseIdentifier(): string
+    public function getAcquirerResponseIdentifier(): ?string
     {
         return $this->acquirerResponseIdentifier;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAcquirerResponseMessage(): string
+    public function getAcquirerResponseMessage(): ?string
     {
         return $this->acquirerResponseMessage;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAdditionalAuthorisationNumber(): string
+    public function getAdditionalAuthorisationNumber(): ?string
     {
         return $this->additionalAuthorisationNumber;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAmount(): string
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAvsAdressResponseCode(): string
+    public function getAvsAdressResponseCode(): ?string
     {
         return $this->avsAdressResponseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAvsPostcodeResponseCode(): string
+    public function getAvsPostcodeResponseCode(): ?string
     {
         return $this->avsPostcodeResponseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getAuthorisationId(): string
+    public function getAuthorisationId(): ?string
     {
         return $this->authorisationId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCaptureDay(): string
+    public function getCaptureDay(): ?string
     {
         return $this->captureDay;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCaptureLimitData(): string
+    public function getCaptureLimitData(): ?string
     {
         return $this->CaptureLimitData;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCaptureMode(): string
+    public function getCaptureMode(): ?string
     {
         return $this->captureMode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCardCSCResultCode(): string
+    public function getCardCSCResultCode(): ?string
     {
         return $this->cardCSCResultCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCardProductCode(): string
+    public function getCardProductCode(): ?string
     {
         return $this->cardProductCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCardProductName(): string
+    public function getCardProductName(): ?string
     {
         return $this->cardProductName;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCardProductProfile(): string
+    public function getCardProductProfile(): ?string
     {
         return $this->cardProductProfile;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getComplementaryCode(): string
+    public function getComplementaryCode(): ?string
     {
         return $this->complementaryCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCreditorId(): string
+    public function getCreditorId(): ?string
     {
         return $this->creditorId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerBusinessName(): string
+    public function getCustomerBusinessName(): ?string
     {
         return $this->customerBusinessName;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerCompanyName(): string
+    public function getCustomerCompanyName(): ?string
     {
         return $this->customerCompanyName;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerEmail(): string
+    public function getCustomerEmail(): ?string
     {
         return $this->customerEmail;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerId(): string
+    public function getCustomerId(): ?string
     {
         return $this->customerId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerIpAddress(): string
+    public function getCustomerIpAddress(): ?string
     {
         return $this->customerIpAddress;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerLegalId(): string
+    public function getCustomerLegalId(): ?string
     {
         return $this->customerLegalId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerMobilePhone(): string
+    public function getCustomerMobilePhone(): ?string
     {
         return $this->customerMobilePhone;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCustomerPositionOccupied(): string
+    public function getCustomerPositionOccupied(): ?string
     {
         return $this->customerPositionOccupied;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccAmount(): string
+    public function getDccAmount(): ?string
     {
         return $this->dccAmount;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccExchangeRate(): string
+    public function getDccExchangeRate(): ?string
     {
         return $this->dccExchangeRate;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccEchangeRateValidity(): string
+    public function getDccEchangeRateValidity(): ?string
     {
         return $this->dccEchangeRateValidity;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccProvider(): string
+    public function getDccProvider(): ?string
     {
         return $this->dccProvider;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccStatus(): string
+    public function getDccStatus(): ?string
     {
         return $this->dccStatus;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDccResponseCode(): string
+    public function getDccResponseCode(): ?string
     {
         return $this->dccResponseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getGuaranteeIndicator(): string
+    public function getGuaranteeIndicator(): ?string
     {
         return $this->guaranteeIndicator;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHashPan1(): string
+    public function getHashPan1(): ?string
     {
         return $this->hashPan1;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHashPan2(): string
+    public function getHashPan2(): ?string
     {
         return $this->hashPan2;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHolderAuthentMethod(): string
+    public function getHolderAuthentMethod(): ?string
     {
         return $this->holderAuthentMethod;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHolderAuthentProgram(): string
+    public function getHolderAuthentProgram(): ?string
     {
         return $this->holderAuthentProgram;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHolderAuthentRelegation(): string
+    public function getHolderAuthentRelegation(): ?string
     {
         return $this->holderAuthentRelegation;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getHolderAuthentStatus(): string
+    public function getHolderAuthentStatus(): ?string
     {
         return $this->holderAuthentStatus;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInstalmentAmaountsList(): string
+    public function getInstalmentAmaountsList(): ?string
     {
         return $this->instalmentAmaountsList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInstalmentDatesList(): string
+    public function getInstalmentDatesList(): ?string
     {
         return $this->instalmentDatesList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInstalmentNumber(): string
+    public function getInstalmentNumber(): ?string
     {
         return $this->instalmentNumber;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInstalmentTransactionReferencesList(): string
+    public function getInstalmentTransactionReferencesList(): ?string
     {
         return $this->instalmentTransactionReferencesList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInterfaceVersion(): string
+    public function getInterfaceVersion(): ?string
     {
         return $this->interfaceVersion;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getInvoiceReference(): string
+    public function getInvoiceReference(): ?string
     {
         return $this->invoiceReference;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getIssuerCode(): string
+    public function getIssuerCode(): ?string
     {
         return $this->issuerCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getIssuerCountryCode(): string
+    public function getIssuerCountryCode(): ?string
     {
         return $this->issuerCountryCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getIssuerEnrollementIndicator(): string
+    public function getIssuerEnrollementIndicator(): ?string
     {
         return $this->issuerEnrollementIndicator;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getIssuerWalletInformation(): string
+    public function getIssuerWalletInformation(): ?string
     {
         return $this->issuerWalletInformation;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getKeyVersion(): string
+    public function getKeyVersion(): ?string
     {
         return $this->keyVersion;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMandateAuthentMethod(): string
+    public function getMandateAuthentMethod(): ?string
     {
         return $this->mandateAuthentMethod;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMandateCertificationType(): string
+    public function getMandateCertificationType(): ?string
     {
         return $this->mandateCertificationType;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMandateId(): string
+    public function getMandateId(): ?string
     {
         return $this->mandateId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMandateUsage(): string
+    public function getMandateUsage(): ?string
     {
         return $this->mandateUsage;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMaskedPan(): string
+    public function getMaskedPan(): ?string
     {
         return $this->maskedPan;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMerchantId(): string
+    public function getMerchantId(): ?string
     {
         return $this->merchantId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMerchantSessionId(): string
+    public function getMerchantSessionId(): ?string
     {
         return $this->merchantSessionId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMerchantTransactionDataTime(): string
+    public function getMerchantTransactionDataTime(): ?string
     {
         return $this->merchantTransactionDataTime;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMerchantWalletId(): string
+    public function getMerchantWalletId(): ?string
     {
         return $this->merchantWalletId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getOrderChannel(): string
+    public function getOrderChannel(): ?string
     {
         return $this->orderChannel;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPanEntryMode(): string
+    public function getPanEntryMode(): ?string
     {
         return $this->panEntryMode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPanExpireDate(): string
+    public function getPanExpireDate(): ?string
     {
         return $this->panExpireDate;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentAttemptNumber(): string
+    public function getPaymentAttemptNumber(): ?string
     {
         return $this->paymentAttemptNumber;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanBrand(): string
+    public function getPaymentMeanBrand(): ?string
     {
         return $this->paymentMeanBrand;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanBrandSelectionStatus(): string
+    public function getPaymentMeanBrandSelectionStatus(): ?string
     {
         return $this->paymentMeanBrandSelectionStatus;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanData(): string
+    public function getPaymentMeanData(): ?string
     {
         return $this->paymentMeanData;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanId(): string
+    public function getPaymentMeanId(): ?string
     {
         return $this->paymentMeanId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanTradingName(): string
+    public function getPaymentMeanTradingName(): ?string
     {
         return $this->paymentMeanTradingName;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanType(): string
+    public function getPaymentMeanType(): ?string
     {
         return $this->paymentMeanType;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPaymentMeanPattern(): string
+    public function getPaymentMeanPattern(): ?string
     {
         return $this->paymentMeanPattern;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationColor(): string
+    public function getPreAuthenticationColor(): ?string
     {
         return $this->preAuthenticationColor;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationInfo(): string
+    public function getPreAuthenticationInfo(): ?string
     {
         return $this->preAuthenticationInfo;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationProfile(): string
+    public function getPreAuthenticationProfile(): ?string
     {
         return $this->preAuthenticationProfile;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationProfileValue(): string
+    public function getPreAuthenticationProfileValue(): ?string
     {
         return $this->preAuthenticationProfileValue;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationRuleResultList(): string
+    public function getPreAuthenticationRuleResultList(): ?string
     {
         return $this->preAuthenticationRuleResultList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthorisationThreshold(): string
+    public function getPreAuthorisationThreshold(): ?string
     {
         return $this->preAuthorisationThreshold;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthenticationValue(): string
+    public function getPreAuthenticationValue(): ?string
     {
         return $this->preAuthenticationValue;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthorisationProfile(): string
+    public function getPreAuthorisationProfile(): ?string
     {
         return $this->preAuthorisationProfile;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthorisationProfileValue(): string
+    public function getPreAuthorisationProfileValue(): ?string
     {
         return $this->preAuthorisationProfileValue;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPreAuthorisationRuleResultList(): string
+    public function getPreAuthorisationRuleResultList(): ?string
     {
         return $this->preAuthorisationRuleResultList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getResponseCode(): string
+    public function getResponseCode(): ?string
     {
         return $this->responseCode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getReturnContext(): string
+    public function getReturnContext(): ?string
     {
         return $this->returnContext;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getS10TransactionId(): string
+    public function getS10TransactionId(): ?string
     {
         return $this->s10TransactionId;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getS10TransactionIdDate(): string
+    public function getS10TransactionIdDate(): ?string
     {
         return $this->s10TransactionIdDate;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getS10TransactionIdsList(): string
+    public function getS10TransactionIdsList(): ?string
     {
         return $this->s10TransactionIdsList;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getScoreColor(): string
+    public function getScoreColor(): ?string
     {
         return $this->scoreColor;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getScoreInfo(): string
+    public function getScoreInfo(): ?string
     {
         return $this->scoreInfo;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getScoreThreshold(): string
+    public function getScoreThreshold(): ?string
     {
         return $this->scoreThreshold;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getScoreValue(): string
+    public function getScoreValue(): ?string
     {
         return $this->scoreValue;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSettlementMode(): string
+    public function getSettlementMode(): ?string
     {
         return $this->settlementMode;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSettlementModeComplement(): string
+    public function getSettlementModeComplement(): ?string
     {
         return $this->settlementModeComplement;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getStatementReference(): string
+    public function getStatementReference(): ?string
     {
         return $this->statementReference;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTokenPan(): string
+    public function getTokenPan(): ?string
     {
         return $this->tokenPan;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTransactionActors(): string
+    public function getTransactionActors(): ?string
     {
         return $this->transactionActors;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTransactionDateTime(): string
+    public function getTransactionDateTime(): ?string
     {
         return $this->transactionDateTime;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTransactionOrigin(): string
+    public function getTransactionOrigin(): ?string
     {
         return $this->transactionOrigin;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTransactionReference(): string
+    public function getTransactionReference(): ?string
     {
         return $this->transactionReference;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getWalletType(): string
+    public function getWalletType(): ?string
     {
         return $this->walletType;
     }
