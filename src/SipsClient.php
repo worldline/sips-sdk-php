@@ -31,6 +31,14 @@ class SipsClient
      * @var int
      */
     private $keyVersion;
+    /**
+     * @var string
+     */
+    private $lastRequestAsJson;
+    /**
+     * @var string
+     */
+    private $lastResponseAsJson;
 
     /**
      * SipsClient constructor.
@@ -74,6 +82,7 @@ class SipsClient
         $sealCalculator = new JsonSealCalculator();
         $sealCalculator->calculateSeal($paymentRequest, $this->secretKey);
         $json = json_encode($paymentRequest->toArray());
+        $this->lastRequestAsJson = $json;
         $client = new Client(["base_uri" => $this->environment->getEnvironment()]);
         $headers = [
             "Content-Type" => "application/json",
@@ -81,12 +90,11 @@ class SipsClient
         ];
         $request = new Request("POST", $paymentRequest->getServiceUrl(), $headers, $json);
         $response = $client->send($request);
+        $this->lastResponseAsJson = $response->getBody()->getContents();
         $initialisationResponse = new InitializationResponse(json_decode($response->getBody()->getContents(), true));
         if (!is_null($initialisationResponse->getSeal())) {
             $validSeal = $sealCalculator->isCorrectSeal($initialisationResponse, $this->getSecretKey());
             if (!$validSeal) {
-                var_dump($initialisationResponse);
-                var_dump($sealCalculator->getSealData($initialisationResponse->toArray()));
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
         }
@@ -142,8 +150,18 @@ class SipsClient
         $this->keyVersion = $keyVersion;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getLastRequestAsJson(): ?string
+    {
+        return $this->lastRequestAsJson;
+    }
 
-
+    public function getLastResponseAsJson(): ?string
+    {
+        return $this->lastResponseAsJson;
+    }
     /**
      * @return PaypageResult
      * @throws \Exception
