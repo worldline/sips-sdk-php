@@ -91,7 +91,7 @@ class SipsClient
         $request = new Request("POST", $paymentRequest->getServiceUrl(), $headers, $json);
         $response = $client->send($request);
         $this->lastResponseAsJson = $response->getBody()->getContents();
-        $initialisationResponse = new InitializationResponse(json_decode($response->getBody()->getContents(), true));
+        $initialisationResponse = new InitializationResponse($this->lastResponseAsJson, true));
         if (!is_null($initialisationResponse->getSeal())) {
             $validSeal = $sealCalculator->isCorrectSeal($initialisationResponse, $this->getSecretKey());
             if (!$validSeal) {
