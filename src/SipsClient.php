@@ -93,6 +93,7 @@ class SipsClient
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
+            "timeout" => 5,
         ];
         $request = new Request("POST", $sipsRequest->getServiceUrl(), $headers, $json);
         $response = $client->send($request);
