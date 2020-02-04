@@ -58,7 +58,7 @@ class SipsClient
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getEnvironment(): ?string
     {
@@ -89,7 +89,10 @@ class SipsClient
         $sealCalculator->calculateSeal($sipsRequest, $this->secretKey, $sealAlgorithm);
         $json = json_encode($sipsRequest->toArray());
         $this->lastRequestAsJson = $json;
-        $client = new Client(["base_uri" => $this->environment->getEnvironment($sipsRequest->getConnecter())]);
+        $client = new Client([
+            "base_uri" => $this->environment->getEnvironment($sipsRequest->getConnecter()),
+            "timeout" => 5
+            ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
