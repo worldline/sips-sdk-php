@@ -28,14 +28,19 @@ class AddCardResponse
         }
     }
 
-    public function getWalletCreationDateTime()
+    public function getWalletActionateTime()
     {
-        return $this->walletCreationDateTime;
+        return $this->walletActionateTime;
     }
 
-    public function getWalletLastActionDateTime()
+    public function getPaymentMeanId()
     {
-        return $this->walletLastActionDateTime;
+        return $this->paymentMeanId;
+    }
+
+    public function getMaskedPan()
+    {
+        return $this->maskedPan;
     }
 
     public function getWalletResponseCode()
@@ -43,25 +48,26 @@ class AddCardResponse
         return $this->walletResponseCode;
     }
 
-    public function getWalletPaymentMeanDataList()
-    {
-        return $this->walletPaymentMeanDataList;
-    }
-
     public function getErrorFieldName()
     {
         return $this->errorFieldName;
     }
 
-    public function setWalletCreationDateTime($walletCreationDateTime)
+    public function setWalletActionateTime($walletActionateTime)
     {
-        $this->walletCreationDateTime = $walletCreationDateTime;
+        $this->walletActionateTime = $walletActionateTime;
         return $this;
     }
 
-    public function setWalletLastActionDateTime($walletLastActionDateTime)
+    public function setPaymentMeanId($paymentMeanId)
     {
-        $this->walletLastActionDateTime = $walletLastActionDateTime;
+        $this->paymentMeanId = $paymentMeanId;
+        return $this;
+    }
+
+    public function setMaskedPan($maskedPan)
+    {
+        $this->maskedPan = $maskedPan;
         return $this;
     }
 
@@ -71,17 +77,10 @@ class AddCardResponse
         return $this;
     }
 
-    public function setWalletPaymentMeanDataList($walletPaymentMeanDataList)
-    {
-        $this->walletPaymentMeanDataList = $walletPaymentMeanDataList;
-        return $this;
-    }
-
     public function setErrorFieldName($errorFieldName)
     {
         $this->errorFieldName = $errorFieldName;
         return $this;
     }
-
 
 }

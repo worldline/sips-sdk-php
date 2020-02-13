@@ -3,9 +3,9 @@
 namespace Worldline\Sips\Wallet;
 
 /**
- * This function allows you to update one of the payment means contained in the client's wallet.
- * If the account or the payment mean do not exist, a 01 response code is returned.
- * If the update works, 00 response code is returned and the date of update.
+ * This function allows a merchant to permanently delete one of the payment means of his wallet.
+ * If the account or the card does not exist, a 01 response code is returned.
+ * If the deletion works, 00 response code is returned and the date of removal
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
