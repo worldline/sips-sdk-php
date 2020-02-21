@@ -81,6 +81,7 @@ class SipsClient
     public function initialize(SipsMessage &$sipsRequest): ?array
     {
         $data = null;
+        $timeout = 10;
         $sipsRequest->setMerchantId($this->getMerchantId());
         $sipsRequest->setKeyVersion($this->getKeyVersion());
 
@@ -91,15 +92,15 @@ class SipsClient
         $this->lastRequestAsJson = $json;
         $client = new Client([
             "base_uri" => $this->environment->getEnvironment($sipsRequest->getConnecter()),
-            "timeout" => 5
+            "timeout" => $timeout
             ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
-            "timeout" => 5,
+            "timeout" => $timeout,
         ];
         $request = new Request("POST", $sipsRequest->getServiceUrl(), $headers, $json);
-        $response = $client->send($request);
+        $response = $client->send($request, ['timeout' => $timeout]);
         $this->lastResponseAsJson = $response->getBody()->getContents();
         $initialisationResponse = new InitializationResponse(json_decode($this->lastResponseAsJson, true));
         if (!is_null($initialisationResponse->getSeal())) {
