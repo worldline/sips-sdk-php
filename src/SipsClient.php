@@ -81,7 +81,7 @@ class SipsClient
     public function initialize(SipsMessage &$sipsRequest): ?array
     {
         $data = null;
-        $timeout = 30;
+        $timeout = 0;
         $sipsRequest->setMerchantId($this->getMerchantId());
         $sipsRequest->setKeyVersion($this->getKeyVersion());
 
