@@ -48,6 +48,7 @@ class WalletCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
     protected $transactionOrigin;
     protected $transactionReference;
     protected $cardCSCValue;
+    protected $cscType;
 
     /**
      *
@@ -65,7 +66,7 @@ class WalletCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/checkout/walletCheckEnrollment";
-        $this->interfaceVersion = "IR_WS_2.23";
+        $this->interfaceVersion = "IR_WS_2.32";
     }
 
     public function getAmount()
@@ -236,6 +237,11 @@ class WalletCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
     public function getCardCSCValue()
     {
         return $this->cardCSCValue;
+    }
+
+    public function getCscType()
+    {
+        return $this->cscType;
     }
 
     public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
@@ -486,5 +492,10 @@ class WalletCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
         return $this;
     }
 
+    public function setCscType($cscType)
+    {
+        $this->cscType = $cscType;
+        return $this;
+    }
 
 }

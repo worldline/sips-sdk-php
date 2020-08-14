@@ -13,6 +13,7 @@ class WalletOrderRequest extends \Worldline\Sips\SipsRequest
     protected $captureDay;
     protected $captureMode;
     protected $cardCSCValue;
+    protected $cscType;
     protected $currencyCode;
     protected $customerId;
     protected $customerIpAddress;
@@ -56,7 +57,7 @@ class WalletOrderRequest extends \Worldline\Sips\SipsRequest
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/checkout/walletOrder";
-        $this->interfaceVersion = "IR_WS_2.24";
+        $this->interfaceVersion = "IR_WS_2.32";
     }
 
     public function getAmount()
@@ -77,6 +78,11 @@ class WalletOrderRequest extends \Worldline\Sips\SipsRequest
     public function getCardCSCValue()
     {
         return $this->cardCSCValue;
+    }
+
+    public function getCscType()
+    {
+        return $this->cscType;
     }
 
     public function getCurrencyCode()
@@ -270,6 +276,12 @@ class WalletOrderRequest extends \Worldline\Sips\SipsRequest
     public function setCardCSCValue($cardCSCValue)
     {
         $this->cardCSCValue = $cardCSCValue;
+        return $this;
+    }
+
+    public function setCscType($cscType)
+    {
+        $this->cscType = $cscType;
         return $this;
     }
 
