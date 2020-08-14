@@ -24,6 +24,8 @@ class AddCardRequest extends \Worldline\Sips\SipsRequest
 
     protected $intermediateServiceProviderId;
 
+    protected $panType;
+
     /**
      * @author Guiled <guislain.duthieuw@gmail.com>
      */
@@ -31,7 +33,7 @@ class AddCardRequest extends \Worldline\Sips\SipsRequest
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/wallet/addCard";
-        $this->interfaceVersion = "WR_WS_2.20";
+        $this->interfaceVersion = "WR_WS_2.31";
     }
 
     public function getCardNumber()
@@ -62,6 +64,11 @@ class AddCardRequest extends \Worldline\Sips\SipsRequest
     public function getIntermediateServiceProviderId()
     {
         return $this->intermediateServiceProviderId;
+    }
+
+    function getPanType()
+    {
+        return $this->panType;
     }
 
     public function setCardNumber($cardNumber)
@@ -100,6 +107,10 @@ class AddCardRequest extends \Worldline\Sips\SipsRequest
         return $this;
     }
 
+    function setPanType($panType): void
+    {
+        $this->panType = $panType;
+    }
 
 
 }
