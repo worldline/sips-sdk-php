@@ -12,6 +12,10 @@ namespace Worldline\Sips\Checkout;
  */
 class CardCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
 {
+
+    const CSC_TYPE_CSE = 'CSE';
+    const CSC_TYPE_PLAIN = 'PLAIN';
+
     protected $amount;
     protected $captureDay;
     protected $captureMode;
