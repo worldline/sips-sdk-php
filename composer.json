@@ -26,7 +26,10 @@
   "autoload": {
     "psr-4": {
       "Worldline\\Sips\\": "src"
-    }
+    },
+    "files": [
+      "src/Common/Values.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
