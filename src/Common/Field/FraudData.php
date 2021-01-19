@@ -1,27 +1,30 @@
 <?php
-
 namespace Worldline\Sips\Common\Field;
 
 class FraudData extends \Worldline\Sips\Common\Field
 {
+
+    protected $addressDeliveryBillingMatchIndicator;
+    protected $allowedCardArea;
+    protected $allowedCardCountryList;
+    protected $allowedIpArea;
+    protected $allowedIpCountryList;
+    protected $bypass3DS;
     protected $bypassCtrlList;
     protected $bypassInfoList;
-    protected $bypass3DS;
-    protected $allowedCardCountryList;
-    protected $deniedCardCountryList;
-    protected $allowedIpCountryList;
-    protected $deniedIpCountryList;
-    protected $allowedCardArea;
-    protected $deniedCardArea;
-    protected $allowedIpArea;
-    protected $deniedIpArea;
-    protected $riskManagementDynamicSettingList;
     protected $challengeMode3DS;
-    protected $addressDeliveryBillingMatchIndicator;
+    protected $deniedCardArea;
+    protected $deniedCardCountryList;
+    protected $deniedIpArea;
+    protected $deniedIpCountryList;
+    protected $merchantCustomerAuthentData;
+    protected $merchantCustomerAuthentDateTime;
+    protected $merchantCustomerAuthentMethod;
     protected $nameDeliveryCustomerMatchIndicator;
+    protected $productAvailabilityDate;
     protected $productAvailabilityIndicator;
     protected $reorderProductIndicator;
-    protected $merchantCustomerAuthentMethod;
+    protected $riskManagementDynamicSettingList;
 
     public function getBypassCtrlList()
     {
@@ -221,4 +224,36 @@ class FraudData extends \Worldline\Sips\Common\Field
         return $this;
     }
 
+    public function getMerchantCustomerAuthentData()
+    {
+        return $this->merchantCustomerAuthentData;
+    }
+
+    public function getMerchantCustomerAuthentDateTime()
+    {
+        return $this->merchantCustomerAuthentDateTime;
+    }
+
+    public function getProductAvailabilityDate()
+    {
+        return $this->productAvailabilityDate;
+    }
+
+    public function setMerchantCustomerAuthentData($merchantCustomerAuthentData)
+    {
+        $this->merchantCustomerAuthentData = $merchantCustomerAuthentData;
+        return $this;
+    }
+
+    public function setMerchantCustomerAuthentDateTime($merchantCustomerAuthentDateTime)
+    {
+        $this->merchantCustomerAuthentDateTime = $merchantCustomerAuthentDateTime;
+        return $this;
+    }
+
+    public function setProductAvailabilityDate($productAvailabilityDate)
+    {
+        $this->productAvailabilityDate = $productAvailabilityDate;
+        return $this;
+    }
 }
