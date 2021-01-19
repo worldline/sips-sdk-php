@@ -1,7 +1,5 @@
 <?php
-
 namespace Worldline\Sips\Common\Field;
-
 
 /**
  * Class Contact
@@ -24,7 +22,15 @@ class Contact extends Field
     /**
      * @var string
      */
+    protected $initials;
+    /**
+     * @var string
+     */
     protected $lastname;
+    /**
+     * @var string
+     */
+    protected $legalId;
     /**
      * @var string
      */
@@ -36,7 +42,15 @@ class Contact extends Field
     /**
      * @var string
      */
+    protected $positionOccupied;
+    /**
+     * @var string
+     */
     protected $title;
+    /**
+     * @var string
+     */
+    protected $workPhone;
 
     /**
      * @ return string|null
@@ -150,4 +164,47 @@ class Contact extends Field
         $this->title = $title;
     }
 
+    public function getInitials()
+    {
+        return $this->initials;
+    }
+
+    public function getLegalId()
+    {
+        return $this->legalId;
+    }
+
+    public function getPositionOccupied()
+    {
+        return $this->positionOccupied;
+    }
+
+    public function getWorkPhone()
+    {
+        return $this->workPhone;
+    }
+
+    public function setInitials($initials)
+    {
+        $this->initials = $initials;
+        return $this;
+    }
+
+    public function setLegalId($legalId)
+    {
+        $this->legalId = $legalId;
+        return $this;
+    }
+
+    public function setPositionOccupied($positionOccupied)
+    {
+        $this->positionOccupied = $positionOccupied;
+        return $this;
+    }
+
+    public function setWorkPhone($workPhone)
+    {
+        $this->workPhone = $workPhone;
+        return $this;
+    }
 }
