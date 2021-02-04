@@ -12,9 +12,6 @@ namespace Worldline\Sips\Wallet;
  */
 class AddCardRequest extends \Worldline\Sips\SipsRequest
 {
-    const PAN_TYPE_CSE = 'CSE';
-    const PAN_TYPE_PAN = 'PAN';
-    const PAN_TYPE_TOKEN_PAN = 'TOKEN_PAN';
 
     protected $cardNumber;
 
