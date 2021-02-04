@@ -1,4 +1,17 @@
 <?php
+namespace Worldline\Sips\Values\PanType {
+
+    const CSE = 'CSE';              // The PAN provided is encrypted by CSE Javascript library (Client Side Encryption)
+    const PAN = 'PAN';              // The PAN is provided in clear text
+    const TOKEN_PAN = 'TOKEN_PAN';  // The PAN provided is a token
+
+}
+namespace Worldline\Sips\Values\CscType {
+
+    const CSE = 'CSE';              // The CSC (Card Security Code) provided is encrypted by the CSE (Client Side Encryption) Javascript library
+    const PLAIN = 'PLAIN';          // The CSC (Card Security Code) is provided in clear text. It is the default value
+
+}
 namespace Worldline\Sips\Values\paymentMeanBrandSelectionStatus {
 
     const DEFAULT_MODE = 'APPLIED_DEFAULT';     // The cardholder accepted the default merchant choice
