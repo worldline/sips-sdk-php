@@ -63,7 +63,7 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/checkout/cardOrder";
-        $this->interfaceVersion = "IR_WS_2.23";
+        $this->interfaceVersion = "IR_WS_2.35";
     }
 
     public function getAmount()

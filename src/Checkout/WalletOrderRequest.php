@@ -58,7 +58,7 @@ class WalletOrderRequest extends \Worldline\Sips\SipsRequest
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "rs-services/v2/checkout/walletOrder";
-        $this->interfaceVersion = "IR_WS_2.32";
+        $this->interfaceVersion = "IR_WS_2.35";
     }
 
     public function getAmount()

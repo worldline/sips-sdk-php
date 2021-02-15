@@ -1,4 +1,5 @@
 <?php
+
 namespace Worldline\Sips\Values\PanType {
 
     const CSE = 'CSE';              // The PAN provided is encrypted by CSE Javascript library (Client Side Encryption)
@@ -6,12 +7,14 @@ namespace Worldline\Sips\Values\PanType {
     const TOKEN_PAN = 'TOKEN_PAN';  // The PAN provided is a token
 
 }
+
 namespace Worldline\Sips\Values\CscType {
 
     const CSE = 'CSE';              // The CSC (Card Security Code) provided is encrypted by the CSE (Client Side Encryption) Javascript library
     const PLAIN = 'PLAIN';          // The CSC (Card Security Code) is provided in clear text. It is the default value
 
 }
+
 namespace Worldline\Sips\Values\paymentMeanBrandSelectionStatus {
 
     const DEFAULT_MODE = 'APPLIED_DEFAULT';     // The cardholder accepted the default merchant choice
@@ -19,6 +22,7 @@ namespace Worldline\Sips\Values\paymentMeanBrandSelectionStatus {
     const NOT_APPLICABLE = 'NOT_APPLICABLE';    // Card number filled is not a cobadged card
 
 }
+
 namespace Worldline\Sips\Values\paymentPattern {
 
     const ONE_SHOT = 'ONE_SHOT';        // One shot payment (default value)
@@ -27,6 +31,7 @@ namespace Worldline\Sips\Values\paymentPattern {
     const RECURRING_N = 'RECURRING_N';  // Recurring payment nth payment
 
 }
+
 namespace Worldline\Sips\Values\merchantCustomerAuthentMethod {
 
     const NOAUTHENT = 'NOAUTHENT';          //	No authentication of the customer by the merchant
@@ -37,6 +42,7 @@ namespace Worldline\Sips\Values\merchantCustomerAuthentMethod {
     const FIDO = 'FIDO';                    // 	Customer authentication by the merchant with FIDO (Fast IDentity Online) system
 
 }
+
 namespace Worldline\Sips\Values\challengeMode3DS {
 
     const CHALLENGE = 'CHALLENGE';                          // The merchant desired authentication challenge mode is to have a client authentication. In other words, it is a "challenge" request
@@ -46,6 +52,7 @@ namespace Worldline\Sips\Values\challengeMode3DS {
     const NO_PREFERENCE = 'NO_PREFERENCE';                  // The merchant has no desired authentication challenge mode
 
 }
+
 namespace Worldline\Sips\Values\Country {
 
     const ARUBA = 'ABW';
@@ -297,5 +304,75 @@ namespace Worldline\Sips\Values\Country {
     const SOUTH_AFRICA = 'ZAF';
     const ZAMBIA = 'ZMB';
     const ZIMBABWE = 'ZWE';
+}
 
+namespace Worldline\Sips\Values\Region {
+    const USA_CA_HI_NV = '1';   // 	USA: California, Hawaii, Nevada
+    const USA_WEST_EXCEPT_CA_HI_NV = '2';   // 	USA: West except California, Hawaii, Nevada
+    const USA_CENTRAL_NORTH = '3';   // 	USA: Central North
+    const USA_CENTRAL_SOUTH = '4';   // 	USA: Central South
+    const USA_GREAT_LAKES = '5';   // 	USA: Great Lakes states
+    const USA_SOUTH_EST = '6';   // 	USA: South East
+    const USA_EXTREME_NORTH_EAST = '7';   // 	USA: Extreme North East
+    const USA_NORTH_EST = '8';   // 	USA: North East
+    const USA_FL_GA = '9';   // 	USA: Florida and Georgia
+    const CANADA = 'A';   // 	Canada
+    const SOUTH_AMERICA = 'B';   // 	South America
+    const OCEANIA_ASIA = 'C';   // 	Oceania Asia
+    const EUROPE = 'D';   // 	Europe
+    const AFRICA_MIDDLE_EAST = 'E';   // 	Africa and middle east
+
+}
+
+namespace Worldline\Sips\Values\CardScheme {
+    const ACCORD = 'ACCORD';            // 	Accord scheme
+    const AMEX = 'AMEX';                // 	American Express scheme
+    const BCMC = 'BCMC';                // 	Bancontact scheme
+    const CB = 'CB';                    // 	Bank Card scheme
+    const MASTERCARD = 'MASTERCARD';    // 	Mastercard scheme (Example of cards on the Mastercard scheme: Mastercard, Maestro)
+    const SOFINCO = 'SOFINCO';          // 	Sofinco scheme
+    const VISA = 'VISA';                // 	Visa scheme (Example of cards on the Visa scheme: Visa, Vpay, Visa Electron)
+}
+
+namespace Worldline\Sips\Values\CardCorporateIndicator {
+    const YES = 'Y';    // The card is a corporate card
+    const NO = 'N';     // The card is not a corporate card
+}
+
+namespace Worldline\Sips\Values\CardEffectiveDateIndicator {
+    const YES = 'Y';
+    const NO = 'N';
+}
+
+namespace Worldline\Sips\Values\CardSeqNumberIndicator {
+    const LENGTH_1 = '1';   // 	Card issue number of length 1
+    const LENGTH_2 = '2';   // 	Card issue number of length 2
+    const LENGTH_3 = '3';   // 	Card issue number of length 3
+    const NONE = 'N';       // 	No card issue number
+
+}
+
+namespace Worldline\Sips\Values\PanCheckAlgorithm {
+    const LUHN_KEY = 'L';  // 	PAN control with Lühn Key algorithm
+    const NO_CONTROL = 'N';  // 	No PAN control algorithm
+    const VISA_MODULUS = 'V';  // 	PAN control with Visa Modulus 10 algorithm
+}
+
+namespace Worldline\Sips\Values\CardProductProfile {
+    const CREDIT = 'C';  // 	Credit (pay after)
+    const DEBIT = 'D';  // 	Debit (pay now)
+    const CHARGE_CARD = 'H';  // 	Charge card (UK specific)
+    const PREPAID = 'P';  // 	Prepaid
+}
+
+namespace Worldline\Sips\Values\VirtualCardIndicator {
+    const YES = 'Y';
+    const NO = 'N';
+}
+
+namespace Worldline\Sips\Values\CardProductUsageLabel {
+    const COMMERCIAL = 'COMMERCIAL'; //  Business card
+    const DEBIT = 'DEBIT';          // 	Debit card
+    const CREDIT = 'CREDIT';        // 	Credit card
+    const PREPAID = 'PREPAID';      // 	Prepaid card
 }
