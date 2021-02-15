@@ -30,7 +30,7 @@ class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsRequ
     {
         $this->connecter        = \Worldline\Sips\Common\SipsEnvironment::OFFICE;
         $this->serviceUrl       = "/rs-services/v2/checkout/cardValidateAuthenticationAndOrder";
-        $this->interfaceVersion = "IR_WS_2.23";
+        $this->interfaceVersion = "IR_WS_2.35";
     }
 
     public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
