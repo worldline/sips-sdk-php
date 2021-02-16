@@ -9,6 +9,20 @@ namespace Worldline\Sips\Common\Field;
  */
 class Field
 {
+
+    /**
+     * @return Field
+     */
+    public function hydrate($data)
+    {
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->$key = $value;
+            }
+        }
+        return $this;
+    }
+
     /**
      * @return array
      */
@@ -17,7 +31,13 @@ class Field
         $array = [];
         foreach ($this as $key => $value) {
             if ($value != null) {
-                $array[$key] = $value;
+                if ($value instanceof Field) {
+                    $array[$key] = $value->toArray();
+                } elseif (is_bool($value)) {
+                    $array[$key] = ($value ? 'true' : 'false');
+                } else {
+                    $array[$key] = $value;
+                }
             }
         }
         ksort($array);

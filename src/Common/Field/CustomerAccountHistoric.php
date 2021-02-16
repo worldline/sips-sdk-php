@@ -1,7 +1,7 @@
 <?php
 namespace Worldline\Sips\Common\Field;
 
-class CustomerAccountHistoric extends \Worldline\Sips\Common\Field
+class CustomerAccountHistoric extends Field
 {
 
     protected $addPaymentMeanDate;

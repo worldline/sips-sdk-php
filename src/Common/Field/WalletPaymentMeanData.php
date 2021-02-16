@@ -7,7 +7,7 @@ namespace Worldline\Sips\Common\Field;
  *
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class WalletPaymentMeanData
+class WalletPaymentMeanData extends Field
 {
     /**
      *

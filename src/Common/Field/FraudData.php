@@ -1,7 +1,7 @@
 <?php
 namespace Worldline\Sips\Common\Field;
 
-class FraudData extends \Worldline\Sips\Common\Field
+class FraudData extends Field
 {
 
     protected $addressDeliveryBillingMatchIndicator;
