@@ -1,7 +1,7 @@
 <?php
 namespace Worldline\Sips\Common\Field;
 
-class ShoppingCartDetail extends \Worldline\Sips\Common\Field
+class ShoppingCartDetail extends Field
 {
 
     protected $discountAmount;              // 

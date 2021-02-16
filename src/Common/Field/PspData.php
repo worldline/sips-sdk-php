@@ -8,7 +8,7 @@ namespace Worldline\Sips\Common\Field;
  *
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class PspData
+class PspData extends Field
 {
     protected $data1;
 

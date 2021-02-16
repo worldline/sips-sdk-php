@@ -1,7 +1,7 @@
 <?php
 namespace Worldline\Sips\Common\Field;
 
-class DeliveryData extends \Worldline\Sips\Common\Field
+class DeliveryData extends Field
 {
 
     protected $deliveryChargeAmount;

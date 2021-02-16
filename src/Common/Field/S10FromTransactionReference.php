@@ -2,7 +2,7 @@
 
 namespace Worldline\Sips\Common\Field;
 
-class S10FromTransactionReference extends \Worldline\Sips\Common\Field
+class S10FromTransactionReference extends Field
 {
     protected $s10FromTransactionId;
 
