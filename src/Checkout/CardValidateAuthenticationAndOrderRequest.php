@@ -10,7 +10,7 @@ namespace Worldline\Sips\Checkout;
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsRequest
+class CardValidateAuthenticationAndOrderRequest extends \Worldline\Sips\SipsMessage
 {
 
     /**

@@ -10,7 +10,7 @@ use Worldline\Sips\Common\Seal\PostSealCalculator;
 use Worldline\Sips\Common\SipsEnvironment;
 use Worldline\Sips\Paypage\InitializationResponse;
 use Worldline\Sips\Paypage\PaypageResult;
-use Worldline\Sips\Paypage\SipsMessage;
+use Worldline\Sips\SipsMessage;
 
 class SipsClient
 {
@@ -78,7 +78,7 @@ class SipsClient
      * @return array|null
      * @throws \Exception
      */
-    public function initialize(SipsMessage &$sipsRequest): ?array
+    public function initialize(SipsMessage $sipsRequest): ?array
     {
         $data = null;
         $timeout = 0;

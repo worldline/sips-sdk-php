@@ -10,7 +10,7 @@ namespace Worldline\Sips\Checkout;
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class CardCheckEnrollmentRequest extends \Worldline\Sips\SipsRequest
+class CardCheckEnrollmentRequest extends \Worldline\Sips\SipsMessage
 {
 
     protected $amount;

@@ -1,12 +1,16 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Nicolas
+ * Date: 07/02/19
+ * Time: 21:39
+ */
+
 namespace Worldline\Sips;
 
-/**
- *
- */
-abstract class SipsRequest extends Common\Field
-{
 
+class SipsMessage
+{
     /**
      * Connecter where to send the request
      * @var string
@@ -114,9 +118,9 @@ abstract class SipsRequest extends Common\Field
     /**
      *
      * @param string $merchantId
-     * @return SipsRequest
+     * @return SipsMessage
      */
-    public function setMerchantId(string$merchantId): SipsRequest
+    public function setMerchantId(string$merchantId): SipsMessage
     {
         $this->merchantId = $merchantId;
         return $this;
@@ -124,9 +128,9 @@ abstract class SipsRequest extends Common\Field
 
     /**
      * @param string $interfaceVersion
-     * @return SipsRequest
+     * @return SipsMessage
      */
-    public function setInterfaceVersion(string $interfaceVersion): SipsRequest
+    public function setInterfaceVersion(string $interfaceVersion): SipsMessage
     {
         $this->interfaceVersion = $interfaceVersion;
 
@@ -136,9 +140,9 @@ abstract class SipsRequest extends Common\Field
     /**
      *
      * @param int $keyVersion
-     * @return SipsRequest
+     * @return SipsMessage
      */
-    public function setKeyVersion(int $keyVersion)
+    public function setKeyVersion(int $keyVersion): SipsMessage
     {
         $this->keyVersion = $keyVersion;
         return $this;
@@ -147,9 +151,9 @@ abstract class SipsRequest extends Common\Field
     /**
      *
      * @param string $seal
-     * @return SipsRequest
+     * @return SipsMessage
      */
-    public function setSeal(string $seal): SipsRequest
+    public function setSeal(string $seal): SipsMessage
     {
         $this->seal = $seal;
         return $this;
@@ -168,12 +172,24 @@ abstract class SipsRequest extends Common\Field
 
     /**
      *
+     * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
-    public function toArray(): array
+    public function toArray($prefixKey = ''): array
     {
-        $array    = parent::toArray();
-        
+        $array    = [];
+        foreach ($this as $key => $value) {
+            if (is_null($value)) {
+                // null values are excluded from the array export
+                continue;
+            }
+            if ($value instanceof SipsMessage) {
+                // Every value in the sub object must be prefixed by the current key
+                $array = array_merge($array, $value->toArray($prefixKey . $key));
+            } else {
+                $array[$prefixKey . $key] = $value;
+            }
+        }
         unset($array['serviceUrl']);
         unset($array['connecter']);
 
