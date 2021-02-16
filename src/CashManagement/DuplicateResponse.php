@@ -2,6 +2,8 @@
 
 namespace Worldline\Sips\CashManagement;
 
+use Worldline\Sips\Common\Field\CardData;
+
 class DuplicateResponse
 {
     protected $acquirerResponseCode;
@@ -26,6 +28,10 @@ class DuplicateResponse
     protected $s10TransactionReference;
     
     protected $transactionReference;
+
+    /**
+     * @var \Worldline\Sips\Common\Field\CardData
+     */
     protected $cardData;
     protected $paymentMeanBrandSelectionStatus;
     protected $preAuthorisationProfile;
@@ -44,6 +50,10 @@ class DuplicateResponse
                 $s10->setS10TransactionId($value['s10TransactionId']);
                 $s10->setS10TransactionIdDate($value['s10TransactionIdDate']);
                 $value = $s10;
+            } elseif ($key === 'cardData') {
+                $cardData = new CardData();
+                $cardData->hydrate($value);
+                $value = $cardData;
             }
             $this->$key = $value;
         }
@@ -129,7 +139,7 @@ class DuplicateResponse
         return $this->transactionReference;
     }
 
-    public function getCardData()
+    public function getCardData(): CardData
     {
         return $this->cardData;
     }
@@ -270,7 +280,7 @@ class DuplicateResponse
         return $this;
     }
 
-    public function setCardData($cardData)
+    public function setCardData(CardData $cardData)
     {
         $this->cardData = $cardData;
         return $this;

@@ -2,6 +2,8 @@
 
 namespace Worldline\Sips\Checkout;
 
+use Worldline\Sips\Common\Field\CardData;
+
 class CardOrderResponse
 {
     protected $acquirerResponseCode;
@@ -32,6 +34,10 @@ class CardOrderResponse
     protected $paymentMeanData;
     protected $s10TransactionReference;
     protected $transactionReference;
+    
+    /**
+     * @var \Worldline\Sips\Common\Field\CardData
+     */
     protected $cardData;
     protected $seal;
     protected $preAuthorisationProfile;
@@ -58,6 +64,10 @@ class CardOrderResponse
                 $s10->setS10TransactionId($value['s10TransactionId']);
                 $s10->setS10TransactionIdDate($value['s10TransactionIdDate']);
                 $value = $s10;
+            } elseif ($key === 'cardData') {
+                $cardData = new CardData();
+                $cardData->hydrate($value);
+                $value = $cardData;
             }
             $this->$key = $value;
         }

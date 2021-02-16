@@ -2,6 +2,8 @@
 
 namespace Worldline\Sips\Checkout;
 
+use Worldline\Sips\Common\Field\CardData;
+
 class CardValidateAuthenticationAndOrderResponse
 {
     protected $acquirerResponseCode;
@@ -53,6 +55,10 @@ class CardValidateAuthenticationAndOrderResponse
     protected $acquirerNativeResponseCode;
     protected $transactionPlatform;
     protected $holderAuthentRelegationCode;
+    
+    /**
+     * @var \Worldline\Sips\Common\Field\CardData
+     */
     protected $cardData;
     protected $authorMessageReference;
     protected $authorisationTypeLabel;
@@ -68,9 +74,12 @@ class CardValidateAuthenticationAndOrderResponse
         foreach ($data as $key => $value) {
             if ($key === 's10TransactionReference') {
                 $s10   = new \Worldline\Sips\Common\Field\S10TransactionReference();
-                $s10->setS10TransactionId($value['s10TransactionId']);
-                $s10->setS10TransactionIdDate($value['s10TransactionIdDate']);
+                $s10->hydrate($value);
                 $value = $s10;
+            } elseif ($key === 'cardData') {
+                $cardData = new CardData();
+                $cardData->hydrate($value);
+                $value = $cardData;
             }
             $this->$key = $value;
         }
@@ -321,7 +330,10 @@ class CardValidateAuthenticationAndOrderResponse
         return $this->holderAuthentRelegationCode;
     }
 
-    public function getCardData()
+    /**
+     * @return Worldline\Sips\Common\Field\CardData
+     */
+    public function getCardData(): CardData
     {
         return $this->cardData;
     }

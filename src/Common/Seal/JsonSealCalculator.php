@@ -3,7 +3,7 @@
 namespace Worldline\Sips\Common\Seal;
 
 use Worldline\Sips\Paypage\InitializationResponse;
-use Worldline\Sips\Paypage\SipsMessage;
+use Worldline\Sips\SipsMessage;
 
 class JsonSealCalculator
 {
