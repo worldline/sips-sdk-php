@@ -6,6 +6,7 @@ namespace Worldline\Sips\Paypage;
 use Worldline\Sips\Common\Field\Address;
 use Worldline\Sips\Common\Field\Contact;
 use Worldline\Sips\Common\Field\PaypageData;
+use Worldline\Sips\SipsMessage;
 
 /**
  * Class PaypageRequest

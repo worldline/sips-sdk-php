@@ -2,12 +2,14 @@
 
 namespace Worldline\Sips\Diagnostic;
 
+use Worldline\Sips\SipsMessage;
+
 /**
  * Description of TransactionData
  *
  * @author guiled
  */
-class TransactionDataRequest extends \Worldline\Sips\SipsRequest
+class TransactionDataRequest extends SipsMessage
 {
     protected $transactionReference;
     protected $s10TransactionReference;

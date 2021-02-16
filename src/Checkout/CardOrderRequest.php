@@ -2,7 +2,7 @@
 
 namespace Worldline\Sips\Checkout;
 
-class CardOrderRequest extends \Worldline\Sips\SipsRequest
+class CardOrderRequest extends \Worldline\Sips\SipsMessage
 {
     protected $amount;
     protected $captureDay;
@@ -16,11 +16,9 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     protected $customerId;
     protected $customerIpAddress;
     protected $fraudData;
-    protected $merchantId;
     protected $merchantTransactionDateTime;
     protected $orderChannel;
     protected $orderId;
-    protected $interfaceVersion;
     protected $returnContext;
     protected $transactionReference;
     protected $transactionOrigin;
@@ -46,9 +44,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     protected $riskManagementCustomDataList;
     protected $shoppingCartDetail;
     protected $intermediateServiceProviderId;
-    protected $seal;
-    protected $keyVersion;
-    protected $sealAlgorithm;
     protected $paymentMeanBrandSelectionStatus;
     protected $subMerchantId;
     protected $subMerchantShortName;
@@ -144,11 +139,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     public function getOrderId()
     {
         return $this->orderId;
-    }
-
-    public function getInterfaceVersion(): string
-    {
-        return $this->interfaceVersion;
     }
 
     public function getReturnContext()
@@ -274,21 +264,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     public function getIntermediateServiceProviderId()
     {
         return $this->intermediateServiceProviderId;
-    }
-
-    public function getSeal(): string
-    {
-        return $this->seal;
-    }
-
-    public function getKeyVersion(): int
-    {
-        return $this->keyVersion;
-    }
-
-    public function getSealAlgorithm(): string
-    {
-        return $this->sealAlgorithm;
     }
 
     public function getPaymentMeanBrandSelectionStatus()
@@ -462,12 +437,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
         return $this;
     }
 
-    public function setMerchantId($merchantId)
-    {
-        $this->merchantId = $merchantId;
-        return $this;
-    }
-
     public function setMerchantTransactionDateTime($merchantTransactionDateTime)
     {
         $this->merchantTransactionDateTime = $merchantTransactionDateTime;
@@ -483,12 +452,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     public function setOrderId($orderId)
     {
         $this->orderId = $orderId;
-        return $this;
-    }
-
-    public function setInterfaceVersion($interfaceVersion)
-    {
-        $this->interfaceVersion = $interfaceVersion;
         return $this;
     }
 
@@ -639,24 +602,6 @@ class CardOrderRequest extends \Worldline\Sips\SipsRequest
     public function setIntermediateServiceProviderId($intermediateServiceProviderId)
     {
         $this->intermediateServiceProviderId = $intermediateServiceProviderId;
-        return $this;
-    }
-
-    public function setSeal($seal)
-    {
-        $this->seal = $seal;
-        return $this;
-    }
-
-    public function setKeyVersion($keyVersion)
-    {
-        $this->keyVersion = $keyVersion;
-        return $this;
-    }
-
-    public function setSealAlgorithm($sealAlgorithm)
-    {
-        $this->sealAlgorithm = $sealAlgorithm;
         return $this;
     }
 
