@@ -2,6 +2,8 @@
 
 namespace Worldline\Sips\Checkout;
 
+use Worldline\Sips\Common\Field\CardData;
+
 /**
  *
  * @author Guiled <guislain.duthieuw@gmail.com>
@@ -29,6 +31,10 @@ class WalletOrderResponse
      */
     protected $s10TransactionReference;
     protected $transactionReference;
+
+    /**
+     * @var \Worldline\Sips\Common\Field\CardData
+     */
     protected $cardData;
     protected $preAuthorisationProfile;
     protected $preAuthorisationProfileValue;
@@ -50,7 +56,7 @@ class WalletOrderResponse
     protected $errorFieldName;
     protected $intermediateServiceProviderOperationId;
     protected $orderId;
-    
+
     public function __construct($data)
     {
         foreach ($data as $key => $value) {
@@ -59,6 +65,10 @@ class WalletOrderResponse
                 $s10->setS10TransactionId($value['s10TransactionId']);
                 $s10->setS10TransactionIdDate($value['s10TransactionIdDate']);
                 $value = $s10;
+            } elseif ($key === 'cardData') {
+                $cardData = new CardData();
+                $cardData->hydrate($value);
+                $value = $cardData;
             }
             $this->$key = $value;
         }
@@ -149,7 +159,7 @@ class WalletOrderResponse
         return $this->transactionReference;
     }
 
-    public function getCardData()
+    public function getCardData(): CardData
     {
         return $this->cardData;
     }
@@ -253,6 +263,4 @@ class WalletOrderResponse
     {
         return $this->orderId;
     }
-
-
 }

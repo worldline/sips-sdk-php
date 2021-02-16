@@ -8,6 +8,7 @@
 
 namespace Worldline\Sips;
 
+use Worldline\Sips\Common\Field\Field;
 
 class SipsMessage
 {
@@ -175,7 +176,7 @@ class SipsMessage
      * @param string $prefixKey Prefix to add in the beginning of each key
      * @return array
      */
-    public function toArray($prefixKey = ''): array
+    public function toArray(): array
     {
         $array    = [];
         foreach ($this as $key => $value) {
@@ -183,11 +184,11 @@ class SipsMessage
                 // null values are excluded from the array export
                 continue;
             }
-            if ($value instanceof SipsMessage) {
+            if ($value instanceof Field) {
                 // Every value in the sub object must be prefixed by the current key
-                $array = array_merge($array, $value->toArray($prefixKey . $key));
+                $array[$key] = $value->toArray();
             } else {
-                $array[$prefixKey . $key] = $value;
+                $array[$key] = $value;
             }
         }
         unset($array['serviceUrl']);

@@ -78,20 +78,20 @@ class SipsClient
      * @return array|null
      * @throws \Exception
      */
-    public function initialize(SipsMessage $sipsRequest): ?array
+    public function initialize(SipsMessage $sipsMessage): ?array
     {
         $data = null;
         $timeout = 0;
-        $sipsRequest->setMerchantId($this->getMerchantId());
-        $sipsRequest->setKeyVersion($this->getKeyVersion());
+        $sipsMessage->setMerchantId($this->getMerchantId());
+        $sipsMessage->setKeyVersion($this->getKeyVersion());
 
         $sealCalculator = new JsonSealCalculator();
         $sealAlgorithm = $this->sealAlgorithm ?? JsonSealCalculator::ALGORITHM_DEFAULT;
-        $sealCalculator->calculateSeal($sipsRequest, $this->secretKey, $sealAlgorithm);
-        $json = json_encode($sipsRequest->toArray());
+        $sealCalculator->calculateSeal($sipsMessage, $this->secretKey, $sealAlgorithm);
+        $json = json_encode($sipsMessage->toArray());
         $this->lastRequestAsJson = $json;
         $client = new Client([
-            "base_uri" => $this->environment->getEnvironment($sipsRequest->getConnecter()),
+            "base_uri" => $this->environment->getEnvironment($sipsMessage->getConnecter()),
             "timeout" => $timeout
             ]);
         $headers = [
@@ -99,7 +99,7 @@ class SipsClient
             "Accept" => "application/json",
             "timeout" => $timeout,
         ];
-        $request = new Request("POST", $sipsRequest->getServiceUrl(), $headers, $json);
+        $request = new Request("POST", $sipsMessage->getServiceUrl(), $headers, $json);
         $response = $client->send($request, ['timeout' => $timeout]);
         $this->lastResponseAsJson = $response->getBody()->getContents();
         $initialisationResponse = new InitializationResponse(json_decode($this->lastResponseAsJson, true));
