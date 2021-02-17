@@ -17,19 +17,19 @@ class SipsClient
     /**
      * @var SipsEnvironment
      */
-    private $environment;
+    protected $environment;
     /**
      * @var string
      */
-    private $merchantId;
+    protected $merchantId;
     /**
      * @var string
      */
-    private $secretKey;
+    protected $secretKey;
     /**
      * @var int
      */
-    private $keyVersion;
+    protected $keyVersion;
     /**
      * 
      * @var string
@@ -38,11 +38,11 @@ class SipsClient
     /**
      * @var string
      */
-    private $lastRequestAsJson;
+    protected $lastRequestAsJson;
     /**
      * @var string
      */
-    private $lastResponseAsJson;
+    protected $lastResponseAsJson;
 
     /**
      * SipsClient constructor.
@@ -93,7 +93,7 @@ class SipsClient
         $client = new Client([
             "base_uri" => $this->environment->getEnvironment($sipsMessage->getConnecter()),
             "timeout" => $timeout
-            ]);
+        ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
@@ -108,7 +108,7 @@ class SipsClient
             if (!$validSeal) {
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
-            $data = json_decode($response->getBody()->getContents(), true);            
+            $data = json_decode($response->getBody()->getContents(), true);
         }
 
         return $data;
