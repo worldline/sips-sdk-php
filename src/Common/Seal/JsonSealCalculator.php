@@ -63,4 +63,14 @@ class JsonSealCalculator
             return false;
         }
     }
+
+    public function checkSeal($response, $secretKey, $sealAlgorithm): bool
+    {
+        $seal = $this->encrypt($this->getSealData($response), $secretKey, $sealAlgorithm);
+        if ($seal == $response['seal']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

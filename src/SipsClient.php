@@ -80,7 +80,6 @@ class SipsClient
      */
     public function initialize(SipsMessage $sipsMessage): ?array
     {
-        $data = null;
         $timeout = 0;
         $sipsMessage->setMerchantId($this->getMerchantId());
         $sipsMessage->setKeyVersion($this->getKeyVersion());
@@ -93,7 +92,7 @@ class SipsClient
         $client = new Client([
             "base_uri" => $this->environment->getEnvironment($sipsMessage->getConnecter()),
             "timeout" => $timeout
-        ]);
+            ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
@@ -102,15 +101,13 @@ class SipsClient
         $request = new Request("POST", $sipsMessage->getServiceUrl(), $headers, $json);
         $response = $client->send($request, ['timeout' => $timeout]);
         $this->lastResponseAsJson = $response->getBody()->getContents();
-        $initialisationResponse = new InitializationResponse(json_decode($this->lastResponseAsJson, true));
-        if (!is_null($initialisationResponse->getSeal())) {
-            $validSeal = $sealCalculator->isCorrectSeal($initialisationResponse, $this->getSecretKey(), $sealAlgorithm);
+        $data = json_decode($response->getBody()->getContents(), true);
+        if (empty($data['seal'])) {
+            $validSeal = $sealCalculator->checkSeal($data, $this->getSecretKey(), $sealAlgorithm);
             if (!$validSeal) {
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
-            $data = json_decode($response->getBody()->getContents(), true);
         }
-
         return $data;
     }
 
