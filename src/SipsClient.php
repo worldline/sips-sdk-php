@@ -101,8 +101,8 @@ class SipsClient
         $request = new Request("POST", $sipsMessage->getServiceUrl(), $headers, $json);
         $response = $client->send($request, ['timeout' => $timeout]);
         $this->lastResponseAsJson = $response->getBody()->getContents();
-        $data = json_decode($response->getBody()->getContents(), true);
-        if (empty($data['seal'])) {
+        $data = json_decode($this->lastResponseAsJson, true);
+        if (!empty($data['seal'])) {
             $validSeal = $sealCalculator->checkSeal($data, $this->getSecretKey(), $sealAlgorithm);
             if (!$validSeal) {
                 throw new \Exception("Invalid seal in response. Response not trusted.");
