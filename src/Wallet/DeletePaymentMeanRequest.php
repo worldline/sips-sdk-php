@@ -9,7 +9,7 @@ namespace Worldline\Sips\Wallet;
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class DeletePaymentMeanRequest extends \Worldline\Sips\SipsRequest
+class DeletePaymentMeanRequest extends \Worldline\Sips\SipsMessage
 {
     protected $merchantWalletId;
     protected $paymentMeanId;

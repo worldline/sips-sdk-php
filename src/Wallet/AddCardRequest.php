@@ -10,7 +10,7 @@ namespace Worldline\Sips\Wallet;
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class AddCardRequest extends \Worldline\Sips\SipsRequest
+class AddCardRequest extends \Worldline\Sips\SipsMessage
 {
 
     protected $cardNumber;

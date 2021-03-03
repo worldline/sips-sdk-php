@@ -9,7 +9,7 @@ namespace Worldline\Sips\Wallet;
  * 
  * @author Guiled <guislain.duthieuw@gmail.com>
  */
-class GetWalletDataRequest extends \Worldline\Sips\SipsRequest
+class GetWalletDataRequest extends \Worldline\Sips\SipsMessage
 {
     protected $merchantWalletId;
 
