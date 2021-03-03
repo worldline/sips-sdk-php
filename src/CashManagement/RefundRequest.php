@@ -2,7 +2,7 @@
 
 namespace Worldline\Sips\CashManagement;
 
-class RefundRequest extends \Worldline\Sips\SipsRequest
+class RefundRequest  extends \Worldline\Sips\SipsMessage
 {
     protected $operationAmount;
     protected $currencyCode;

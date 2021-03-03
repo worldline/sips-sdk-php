@@ -2,7 +2,7 @@
 
 namespace Worldline\Sips\CashManagement;
 
-class ValidateRequest extends \Worldline\Sips\SipsRequest
+class ValidateRequest extends \Worldline\Sips\SipsMessage
 {
     protected $currencyCode;
     protected $intermediateServiceProviderId;

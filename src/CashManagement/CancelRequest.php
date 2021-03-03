@@ -2,7 +2,8 @@
 
 namespace Worldline\Sips\CashManagement;
 
-class CancelRequest extends \Worldline\Sips\SipsRequest {
+class CancelRequest extends \Worldline\Sips\SipsMessage
+{
 
     protected $operationAmount;
     protected $currencyCode;

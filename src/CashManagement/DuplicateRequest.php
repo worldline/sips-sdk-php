@@ -2,7 +2,7 @@
 
 namespace Worldline\Sips\CashManagement;
 
-class DuplicateRequest extends \Worldline\Sips\SipsRequest
+class DuplicateRequest extends \Worldline\Sips\SipsMessage
 {
     protected $amount;
     protected $captureDay;
