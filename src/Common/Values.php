@@ -23,7 +23,7 @@ namespace Worldline\Sips\Values\paymentMeanBrandSelectionStatus {
 
 }
 
-namespace Worldline\Sips\Values\paymentPattern {
+namespace Worldline\Sips\Values\PaymentPattern {
 
     const ONE_SHOT = 'ONE_SHOT';        // One shot payment (default value)
     const ISNTALMENT = 'INSTALMENT';    // Payment by instalment
@@ -32,7 +32,7 @@ namespace Worldline\Sips\Values\paymentPattern {
 
 }
 
-namespace Worldline\Sips\Values\merchantCustomerAuthentMethod {
+namespace Worldline\Sips\Values\MerchantCustomerAuthentMethod {
 
     const NOAUTHENT = 'NOAUTHENT';          //	No authentication of the customer by the merchant
     const OWNCREDENTIAL = 'OWNCREDENTIAL';  // 	Customer authentication by the merchant using his own system
@@ -43,7 +43,7 @@ namespace Worldline\Sips\Values\merchantCustomerAuthentMethod {
 
 }
 
-namespace Worldline\Sips\Values\challengeMode3DS {
+namespace Worldline\Sips\Values\ChallengeMode3DS {
 
     const CHALLENGE = 'CHALLENGE';                          // The merchant desired authentication challenge mode is to have a client authentication. In other words, it is a "challenge" request
     const CHALLENGE_MANDATE = 'CHALLENGE_MANDATE';          // The merchant need is to apply the regulatory mode to have a strong customer authentication (for example for the first payment of payment schedule)
@@ -375,4 +375,163 @@ namespace Worldline\Sips\Values\CardProductUsageLabel {
     const DEBIT = 'DEBIT';          // 	Debit card
     const CREDIT = 'CREDIT';        // 	Credit card
     const PREPAID = 'PREPAID';      // 	Prepaid card
+}
+
+namespace Worldline\Sips\Values\CaptureMode {
+    const AUTHOR_CAPTURE = 'AUTHOR_CAPTURE';    //	Cancellation mode: automatic authorisation and payment collection (default value)
+    const IMMEDIATE = 'IMMEDIATE';              // 	Immediate mode: online payment collection at the time of the authorisation request (available for a restricted list of payment methods)
+    const VALIDATION = 'VALIDATION';            // 	Validation mode: payment collection following validation of the merchant
+}
+
+namespace Worldline\Sips\Values\CurrencyCode {
+    const ARGENTINEAN_PESO = '032';         // 	Argentinean Peso
+    const AUSTRALIAN_DOLLAR = '036';        // 	Australian Dollar
+    const BAHRAIN_DINAR = '048';            // 	Bahrain Dinar
+    const CAMBODIAN_RIEL = '116';           // 	Cambodian Riel
+    const CANADIAN_DOLLAR = '124';          // 	Canadian Dollar
+    const SRI_LANKA_RUPEE = '144';          // 	Sri Lanka Rupee
+    const CHINA_YUAN_RENMINBI = '156';      // 	China Yuan Renminbi
+    const CROATIA_KUNA = '191';             // 	Croatia Kuna
+    const CZECH_REPUBLIC_KORUNA = '203';    // 	Czech Republic Koruna
+    const DANES_CROWN = '208';              // 	Danes crown
+    const HONG_KONG_DOLLAR = '344';         // 	Hong Kong dollar
+    const HUNGARY_FORINT = '348';           // 	Hungary Forint
+    const ICELAND_RUPEE = '352';            // 	Iceland Rupee
+    const INDIAN_REPUU = '356';             // 	Indian rupee
+    const ISRAEL_SHEKEL = '376';            // 	Israel Shekel
+    const JAPANESE_YEN = '392';             // 	Japanese Yen
+    const SOUTH_KOREAN_WON = '410';         // 	South Korean Won
+    const KUWAIT_DINAR = '414';             // 	Kuwait Dinar
+    const MALAYSIA_RINGGIT = '458';         // 	Malaysia Ringgit
+    const MAURITIUS_RUPEE = '480';          // 	Mauritius Rupee
+    const MEXICAN_PESO = '484';             // 	Mexican Peso
+    const NEPAL_RUPEE = '524';              // 	Nepal Rupee
+    const NEW_ZEALAND_DOLLAR = '554';       // 	New Zealand Dollar
+    const NORWEGIAN_CROWN = '578';          // 	Norwegian crown
+    const QATAR_RIYAL = '634';              // 	Qatar Riyal
+    const RUSSIA_RUBLE = '643';             // 	Russia Ruble
+    const SAUDI_ARADIA_RIYAL = '682';       // 	Saudi Arabia Riyal
+    const SINGAPORE_DOLLAR = '702';         // 	Singapore Dollar
+    const SOUTH_AFRICA_RAND = '710';        // 	South Africa Rand
+    const SWEDISH_CROWN = '752';            // 	Swedish crown
+    const SWISS_FRANC = '756';              // 	Swiss Franc
+    const THAILAND_BATH = '764';            // 	Thailand Baht
+    const UNITED_ARAD_EMIRATES_DIRHAM = '784';    // 	United Arab Emirates Dirham
+    const TUNISIA_DINAR = '788';            // 	Tunisia Dinar
+    const POUND = '826';                    // 	Pound
+    const US_DOLLAR = '840';                // 	American Dollar
+    const TAIWAN_DOLLAR = '901';            // 	Taiwan Dollar
+    const SERBIAN_DINAR = '941';            // 	Serbian Dinar
+    const ROUMANIA_NEW_LEU = '946';         // 	Roumania New Leu
+    const NEW_TURKISH_LIRA = '949';         // 	New Turkish Lira
+    const CFA_FRANC = '952';                // 	CFA Franc
+    const CFP_FRANC = '953';                // 	CFP Franc
+    const BULGARIA_LEV = '975';             // 	Bulgaria Lev
+    const EURO = '978';                     // 	Euro
+    const UKRAINE_HRYVNIA = '980';          // 	Ukraine Hryvnia
+    const POLAND_ZLOTY = '985';             // 	Poland Zloty
+    const BRAZILIAN_REAL = '986';           // 	Brazilian Real
+
+}
+
+
+namespace Worldline\Sips\Values\CustomerLanguage {
+    const BULGARIAN = 'bg';     // 	Bulgarian
+    const BRETON = 'br';        // 	Breton
+    const CZECH = 'cs';         // 	Czech
+    const DANISH = 'da';        // 	Danish
+    const GERMAN = 'de';        // 	German
+    const GREEK = 'el';         // 	Greek
+    const ENGLISH = 'en';       // 	English
+    const SPANISH = 'es';       // 	Spanish
+    const ESTONIAN = 'et';      // 	Estonian
+    const FINNISH = 'fi';       // 	Finnish
+    const FRENCH = 'fr';        // 	French
+    const HINDI = 'hi';         // 	Hindi
+    const CROATIAN = 'hr';      // 	Croatian
+    const HUNGARIAN = 'hu';     // 	Hungarian
+    const ITALIAN = 'It';       // 	Italian
+    const JAPANESE = 'Ja';      // 	Japanese
+    const KOREAN = 'ko';        // 	Korean
+    const LITHUANIAN = 'lt';    // 	Lithuanian
+    const LATVIAN = 'lv';       // 	Latvian
+    const DUTCH = 'nl';         // 	Dutch
+    const NORWEGIAN = 'no';     // 	Norwegian
+    const POLISH = 'pl';        // 	Polish
+    const PORTUGUESE = 'pt';    // 	Portuguese
+    const ROMANIAN = 'ro';      // 	Romanian
+    const RUSSIAN = 'ru';       // 	Russian
+    const SLOVAK = 'sk';        // 	Slovak
+    const SLOVENE = 'sl';       // 	Slovene
+    const SWEDISH = 'sv';       // 	Swedish
+    const TURKISH = 'tr';       // 	Turkish
+    const UKRAINIAN = 'uk';     // 	Ukrainian
+    const CHINESE = 'zh';       // 	Chinese
+}
+
+
+namespace Worldline\Sips\Values\HashAlgorithm {
+    const SHA_1 = 'SHA-1';          // 	SHA_1 cryptographic function structure (SHA: secure hash algorithm)
+    const SHA_256 = 'SHA-256';    // 	SHA_256 cryptographic function structure (SHA: secure hash algorithm)
+    const SHA_512 = 'SHA-512';    // 	SHA_512 cryptographic function structure (SHA: secure hash algorithm)
+}
+
+namespace Worldline\Sips\Values\PaymentMeanBrandType {
+    const ONEEUROCOM  = 'ONLINE_CREDIT';      // 	Cofidis Pay 5x10x20x
+    const THREEXCBCOFINOGA  = 'CARD';       // 	Cofinoga 3xCB
+    const ACCEPTGIRO  = 'CREDIT_TRANSFER';      // 	AcceptGiro
+    const ACCORD  = 'CARD';     // 	Oney card
+    const ACCORD_KDO  = 'CARD';     // 	Oney gift card
+    const ACCORD_3X  = 'ONLINE_CREDIT';     // 	Facily Pay Payment 3 times
+    const ACCORD_4X  = 'ONLINE_CREDIT';     // 	Facily Pay Payment 4 times
+    const AMEX  = 'CARD';       // 	American Express card
+    const AURORE  = 'CARD';     // 	Aurore CPAY
+    const BCACB_3X  = 'ONLINE_CREDIT';      // 	Banque Casino CB payment 3 times
+    const BCACB_4X  = 'ONLINE_CREDIT';      // 	Banque Casino CB payment 4 times
+    const BCACUP  = 'CARD';     // 	CUP Card of Banque Casino
+    const BCMC  = 'CARD';       // 	Bancontact
+    const CACF_3X  = 'ONLINE_CREDIT';       // 	CACF Payment 3 times
+    const CACF_4X  = 'ONLINE_CREDIT';       // 	CACF Payment 4 times
+    const CADHOC  = 'CARD';     // 	Cadhoc
+    const CADOCARTE  = 'CARD';      // 	Cado Card
+    const CB  = 'CARD';     // 	Carte Bancaire
+    const CBCONLINE  = 'CREDIT_TRANSFER';       // 	PayButton CBC Online
+    const CETELEM_3X  = 'ONLINE_CREDIT';        // 	Cetelem 3xCB
+    const CETELEM_4X  = 'ONLINE_CREDIT';        // 	Cetelem 4xCB
+    const COFIDIS_3X  = 'ONLINE_CREDIT';        // 	Cofidis 3xCB
+    const COFIDIS_4X  = 'ONLINE_CREDIT';        // 	Cofidis 4xCB
+    const CONECS  = 'VOUCHER';      // 	Titles restaurants dematerialized Conecs
+    const CUP  = 'CARD';        // 	China Union Pay card
+    const CVA  = 'CARD';        // 	Visa Aurore card
+    const CVCO  = 'VOUCHER';        // 	Chèque-Vacances Connect
+    const DINERS  = 'CARD';     // 	Diners club international card
+    const ECV  = 'VOUCHER';     // 	e-Chèque-Vacances
+    const ELV  = 'DIRECT_DEBIT';        // 	Elektronisches LastschriftVerfahren
+    const FIVORY  = 'WALLET';       // 	Lyf Pay
+    const FRANFINANCE_3X  = 'ONLINE_CREDIT';        // 	Franfinance 3xCB
+    const FRANFINANCE_4X  = 'ONLINE_CREDIT';        // 	Franfinance 4xCB
+    const GIROPAY  = 'CREDIT_TRANSFER';     // 	Giropay
+    const IDEAL  = 'CREDIT_TRANSFER';       // 	iDeal
+    const ILLICADO  = 'CARD';       // 	Illicado
+    const INCASSO  = 'DIRECT_DEBIT';        // 	Incasso
+    const INGHOMEPAY  = 'CREDIT_TRANSFER';      // 	PayButton ING Home’Pay
+    const JCB  = 'CARD';        // 	Japan credit bureau card
+    const KBCONLINE  = 'CREDIT_TRANSFER';       // 	PayButton KBC Online
+    const LEPOTCOMMUN  = 'CARD';        // 	Le Pot Commun
+    const LYDIA  = 'PROVIDER';      // 	Lydia
+    const MAESTRO  = 'CARD';        // 	Maestro card (Mastercard)
+    const MASTERCARD  = 'CARD';     // 	Mastercard card
+    const PASSCADO  = 'CARD';       // 	Pass Cadeau
+    const PAY_BY_BANK  = 'CREDIT_TRANSFER';     // 	SEPA bank transfer
+    const PAYPAL  = 'WALLET';       // 	Paypal
+    const PAYTRAIL  = 'CREDIT_TRANSFER';        // 	Paytrail
+    const POSTFINANCE  = 'CARD';        // 	PostFinance card
+    const PRESTO  = 'ONLINE_CREDIT';        // 	Presto Plus
+    const SEPA_DIRECT_DEBIT  = 'DIRECT_DEBIT';      // 	SDD (SEPA Direct Debit)
+    const SOFINCO  = 'CARD';        // 	Sofinco card
+    const SOFORTUBERWEISUNG  = 'CREDIT_TRANSFER';       // 	Sofortüberweisung (Sofort Banking)
+    const SPIRITOFCADEAU  = 'CARD';     // 	Spirit Of Cadeau
+    const VISA  = 'CARD';       // 	Visa card
+    const VISA_ELECTRON  = 'CARD';      // 	Visa Electron card
+    const VPAY  = 'CARD';       // 	VPAY card (Visa)
 }
