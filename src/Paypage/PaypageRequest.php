@@ -1086,7 +1086,7 @@ class PaypageRequest extends SipsMessage
      *
      * @return  \Worldline\Sips\Common\Field\FraudData
      */
-    public function getFraudData(): \Worldline\Sips\Common\Field\FraudData
+    public function getFraudData(): ?\Worldline\Sips\Common\Field\FraudData
     {
         return $this->fraudData;
     }
