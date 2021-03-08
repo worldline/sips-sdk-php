@@ -1,3 +1,8 @@
+>:warning: As of 30/06/2021 the sips-atos.com urls will stop working.
+>they have been replaced by sips-services.com urls.
+>Make sure to update to version 1.0.7 or higher to avoid problems.
+
+
 # Sips Library
 
 This package provides a PHP implementation for Sips, the Worldline e-payments gateway.
@@ -13,7 +18,7 @@ composer require worldline/sips-payment-sdk
 ```
 After installing the package, you need to require Composer's autoloader:
 ```php
-require 'vendor/autoload.php'
+require 'vendor/autoload.php';
 ```
 
 ## Usage
