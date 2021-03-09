@@ -14,14 +14,14 @@ class SipsEnvironment
 
     protected $possibleEnvironments = [
         self::PAYPAGE => [
-            self::SIMULATION => "https://payment-webinit.simu.sips-atos.com/",
-            self::TEST       => "https://payment-webinit.test.sips-atos.com/",
-            self::PRODUCTION => "https://payment-webinit.sips-atos.com/",
+            self::SIMULATION => "https://payment-webinit.simu.sips-services.com/",
+            self::TEST       => "https://payment-webinit.test.sips-services.com/",
+            self::PRODUCTION => "https://payment-webinit.sips-services.com/",
         ],
         self::OFFICE  => [
-            self::SIMULATION => "https://office-server.simu.sips-atos.com/",
-            self::TEST       => "https://office-server.test.sips-atos.com/",
-            self::PRODUCTION => "https://office-server.sips-atos.com/",
+            self::SIMULATION => "https://office-server.simu.sips-services.com/",
+            self::TEST       => "https://office-server.test.sips-services.com/",
+            self::PRODUCTION => "https://office-server.sips-services.com/",
         ]
     ];
     protected $environment;
