@@ -74,17 +74,15 @@ class SipsClient
     }
 
     /**
-     * @param SipsMessage $paymentRequest
+     * @param SipsMessage $sipsMessage
      * @return array|null
-     * @throws \Exception
+     * @throws Common\Exception\InvalidEnvironmentException
      */
-    public function initialize(SipsMessage $sipsMessage): ?array
+    public function send(SipsMessage $sipsMessage): ?array
     {
         $timeout = 0;
         $sipsMessage->setMerchantId($this->getMerchantId());
-        $sipsMessage->setKeyVersion($this->getKeyVersion());
-
-        $sealCalculator = new JsonSealCalculator();
+        $sipsMessage->setKeyVersion($this->getKeyVersion());$sealCalculator = new JsonSealCalculator();
         $sealAlgorithm = $this->sealAlgorithm ?? JsonSealCalculator::ALGORITHM_DEFAULT;
         $sealCalculator->calculateSeal($sipsMessage, $this->secretKey, $sealAlgorithm);
         $json = json_encode($sipsMessage->toArray());
@@ -92,7 +90,7 @@ class SipsClient
         $client = new Client([
             "base_uri" => $this->environment->getEnvironment($sipsMessage->getConnecter()),
             "timeout" => $timeout
-            ]);
+        ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
@@ -108,7 +106,18 @@ class SipsClient
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
         }
+
         return $data;
+    }
+
+    /**
+     * @param SipsMessage $sipsMessage
+     * @return InitializationResponse|null
+     * @throws \Exception
+     */
+    public function initialize(SipsMessage $sipsMessage): ?InitializationResponse
+    {
+        return new InitializationResponse($this->send($sipsMessage));
     }
 
     /**
