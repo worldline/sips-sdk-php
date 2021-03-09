@@ -56,10 +56,10 @@ class SipsClient
         if ($merchantId == null) {
             $merchantId = $_SERVER["SIPS_MERCHANTID"];
         }
-        if ($secretKey = null) {
+        if ($secretKey == null) {
             $secretKey = $_SERVER["SIPS_SECRETKEY"];
         }
-        if ($keyVersion = null) {
+        if ($keyVersion == null) {
             $keyVersion = $_SERVER["SIPS_KEYVERSION"];
         }
         $this->setEnvironment($environment);
