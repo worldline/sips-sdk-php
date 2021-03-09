@@ -169,11 +169,16 @@ class SipsClient
     }
 
     /**
-     * @return string|null
+     * @param bool $prettyPrint
+     * @return string
      */
-    public function getLastRequestAsJson(): ?string
+    public function getLastRequestAsJson($prettyPrint = false): string
     {
-        return $this->lastRequestAsJson;
+        if ($prettyPrint) {
+            return json_encode(json_decode($this->lastRequestAsJson,true),JSON_PRETTY_PRINT);
+        } else {
+            return $this->lastRequestAsJson;
+        }
     }
 
     /**
@@ -197,12 +202,16 @@ class SipsClient
     }
 
     /**
-     * 
-     * @return string|null
+     * @param bool $prettyPrint
+     * @return string
      */
-    public function getLastResponseAsJson(): ?string
+    public function getLastResponseAsJson($prettyPrint = false): string
     {
-        return $this->lastResponseAsJson;
+        if ($prettyPrint) {
+            return json_encode(json_decode($this->lastResponseAsJson,true),JSON_PRETTY_PRINT);
+        } else {
+            return $this->lastResponseAsJson;
+        }
     }
 
     /**
