@@ -1,3 +1,8 @@
+>:warning: As of 30/06/2021 the sips-atos.com urls will stop working.
+>they have been replaced by sips-services.com urls.
+>Make sure to update to version 1.0.7 or higher to avoid problems.
+
+
 # Sips Library
 
 This package provides a PHP implementation for Sips, the Worldline e-payments gateway.
@@ -13,7 +18,7 @@ composer require worldline/sips-payment-sdk
 ```
 After installing the package, you need to require Composer's autoloader:
 ```php
-require 'vendor/autoload.php'
+require 'vendor/autoload.php';
 ```
 
 ## Usage
@@ -58,7 +63,7 @@ If your initialization was successful, your response will contain `redirectionSt
 In case your initialization was successful, you have to use the redirectionUrl received to perform a POST request with both the redirectionData and seal as parameters.
 Since this should redirect the customer to the Sips payment page, the cleanest example is a simpleHTML form:
 ```html
-<form action="<?= $sipsResponse->getRedirectionUrl() ?>">
+<form action="<?= $sipsResponse->getRedirectionUrl() ?>" method="post">
     <input type="hidden" name="redirectionVersion" value="<?= $sipsResponse->getRedirectionVersion() ?>">
     <input type="hidden" name="redirectionData" value="<?= $sipsResponse->getRedirectionData() ?>">
     <input type="submit" value="Go to PayPage">
