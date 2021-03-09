@@ -47,10 +47,21 @@ class SipsClient
     /**
      * SipsClient constructor.
      * @param SipsEnvironment $environment
-     * @param string $secretKey
+     * @param string|null $merchantId
+     * @param string|null $secretKey
+     * @param int|null $keyVersion
      */
-    public function __construct(SipsEnvironment $environment, string $merchantId, string $secretKey, int $keyVersion)
+    public function __construct(SipsEnvironment $environment, string $merchantId = null, string $secretKey = null, int $keyVersion = null)
     {
+        if ($merchantId == null) {
+            $merchantId = $_SERVER["SIPS_MERCHANTID"];
+        }
+        if ($secretKey = null) {
+            $secretKey = $_SERVER["SIPS_SECRETKEY"];
+        }
+        if ($keyVersion = null) {
+            $keyVersion = $_SERVER["SIPS_KEYVERSION"];
+        }
         $this->setEnvironment($environment);
         $this->setMerchantId($merchantId);
         $this->setSecretKey($secretKey);

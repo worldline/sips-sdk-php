@@ -28,11 +28,14 @@ class SipsEnvironment
 
     /**
      * SipsEnvironment constructor.
-     * @param string $environment
+     * @param string|null $environment
      * @throws InvalidEnvironmentException
      */
-    public function __construct(string $environment)
+    public function __construct(string $environment = null)
     {
+        if ($environment == null) {
+            $environment = $_SERVER["SIPS_ENVIRONMENT"];
+        }
         if (!key_exists($environment, $this->possibleEnvironments[self::PAYPAGE])) {
             throw new InvalidEnvironmentException('Invalid environment "' . $environment . '"');
         }
