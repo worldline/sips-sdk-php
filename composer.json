@@ -18,7 +18,8 @@
   ],
   "require": {
     "php": ">=7.1",
-    "guzzlehttp/guzzle": "@stable"
+    "guzzlehttp/guzzle": "@stable",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "@stable"
