@@ -2,109 +2,115 @@
 
 namespace Worldline\Sips\Paypage;
 
-
 class PaypageResult
 {
-    private $acquirerNativeResponseCode;
-    private $acquirerResponseCode;
-    private $acquirerResponseIdentifier;
-    private $acquirerResponseMessage;
-    private $additionalAuthorisationNumber;
-    private $amount;
-    private $avsAdressResponseCode;
-    private $avsPostcodeResponseCode;
-    private $authorisationId;
-    private $captureDay;
-    private $CaptureLimitData;
-    private $captureMode;
-    private $cardCSCResultCode;
-    private $cardProductCode;
-    private $cardProductName;
-    private $cardProductProfile;
-    private $complementaryCode;
-    private $creditorId;
-    private $currencyCode;
-    private $customerBusinessName;
-    private $customerCompanyName;
-    private $customerEmail;
-    private $customerId;
-    private $customerIpAddress;
-    private $customerLegalId;
-    private $customerMobilePhone;
-    private $customerPositionOccupied;
-    private $dccAmount;
-    private $dccExchangeRate;
-    private $dccEchangeRateValidity;
-    private $dccProvider;
-    private $dccStatus;
-    private $dccResponseCode;
-    private $guaranteeIndicator;
-    private $hashPan1;
-    private $hashPan2;
-    private $holderAuthentMethod;
-    private $holderAuthentProgram;
-    private $holderAuthentRelegation;
-    private $holderAuthentStatus;
-    private $instalmentAmaountsList;
-    private $instalmentDatesList;
-    private $instalmentNumber;
-    private $instalmentTransactionReferencesList;
-    private $interfaceVersion;
-    private $invoiceReference;
-    private $issuerCode;
-    private $issuerCountryCode;
-    private $issuerEnrollementIndicator;
-    private $issuerWalletInformation;
-    private $keyVersion;
-    private $mandateAuthentMethod;
-    private $mandateCertificationType;
-    private $mandateId;
-    private $mandateUsage;
-    private $maskedPan;
-    private $merchantId;
-    private $merchantSessionId;
-    private $merchantTransactionDataTime;
-    private $merchantWalletId;
-    private $orderChannel;
-    private $orderId;
-    private $panEntryMode;
-    private $panExpireDate;
-    private $paymentAttemptNumber;
-    private $paymentMeanBrand;
-    private $paymentMeanBrandSelectionStatus;
-    private $paymentMeanData;
-    private $paymentMeanId;
-    private $paymentMeanTradingName;
-    private $paymentMeanType;
-    private $paymentMeanPattern;
-    private $preAuthenticationColor;
-    private $preAuthenticationInfo;
-    private $preAuthenticationProfile;
-    private $preAuthenticationProfileValue;
-    private $preAuthenticationRuleResultList;
-    private $preAuthorisationThreshold;
-    private $preAuthenticationValue;
-    private $preAuthorisationProfile;
-    private $preAuthorisationProfileValue;
-    private $preAuthorisationRuleResultList;
-    private $responseCode;
-    private $returnContext;
-    private $s10TransactionId;
-    private $s10TransactionIdDate;
-    private $s10TransactionIdsList;
-    private $scoreColor;
-    private $scoreInfo;
-    private $scoreThreshold;
-    private $scoreValue;
-    private $settlementMode;
-    private $settlementModeComplement;
-    private $statementReference;
-    private $tokenPan;
-    private $transactionActors;
-    private $transactionDateTime;
-    private $transactionOrigin;
-    private $transactionReference;
-    private $walletType;
+    protected $acquirerNativeResponseCode;
+    protected $acquirerResponseCode;
+    protected $acquirerResponseIdentifier;
+    protected $acquirerResponseMessage;
+    protected $additionalAuthorisationNumber;
+    protected $amount;
+    protected $avsAdressResponseCode;
+    protected $avsPostcodeResponseCode;
+    protected $authorisationId;
+    protected $captureDay;
+    protected $CaptureLimitData;
+    protected $captureMode;
+    protected $cardCSCResultCode;
+    protected $cardProductCode;
+    protected $cardProductName;
+    protected $cardProductProfile;
+    protected $complementaryCode;
+    protected $complementaryInfo;
+    protected $creditorId;
+    protected $currencyCode;
+    protected $customerBusinessName;
+    protected $customerCompanyName;
+    protected $customerEmail;
+    protected $customerId;
+    protected $customerIpAddress;
+    protected $customerLegalId;
+    protected $customerMobilePhone;
+    protected $customerPositionOccupied;
+    protected $dccAmount;
+    protected $dccExchangeRate;
+    protected $dccEchangeRateValidity;
+    protected $dccProvider;
+    protected $dccStatus;
+    protected $dccResponseCode;
+    protected $guaranteeIndicator;
+    protected $hashPan1;
+    protected $hashPan2;
+    protected $holderAuthentMethod;
+    protected $holderAuthentProgram;
+    protected $holderAuthentRelegation;
+    protected $holderAuthentStatus;
+    protected $instalmentAmaountsList;
+    protected $instalmentDatesList;
+    protected $instalmentNumber;
+    protected $instalmentTransactionReferencesList;
+    protected $interfaceVersion;
+    protected $invoiceReference;
+    protected $issuerCode;
+    protected $issuerCountryCode;
+    protected $issuerEnrollementIndicator;
+    protected $issuerWalletInformation;
+    protected $keyVersion;
+    protected $mandateAuthentMethod;
+    protected $mandateCertificationType;
+    protected $mandateId;
+    protected $mandateUsage;
+    protected $maskedPan;
+    protected $merchantId;
+    protected $merchantSessionId;
+    protected $merchantTransactionDataTime;
+    protected $merchantWalletId;
+    protected $orderChannel;
+    protected $orderId;
+    protected $panEntryMode;
+    protected $panExpireDate;
+    protected $paymentAttemptNumber;
+    protected $paymentMeanBrand;
+    protected $paymentMeanBrandSelectionStatus;
+    protected $paymentMeanData;
+    protected $paymentMeanId;
+    protected $paymentMeanTradingName;
+    protected $paymentMeanType;
+    protected $paymentMeanPattern;
+    protected $preAuthenticationColor;
+    protected $preAuthenticationInfo;
+    protected $preAuthenticationProfile;
+    protected $preAuthenticationProfileValue;
+    protected $preAuthenticationRuleResultList;
+    protected $preAuthorisationThreshold;
+    protected $preAuthenticationValue;
+    protected $preAuthorisationProfile;
+    protected $preAuthorisationProfileValue;
+    protected $preAuthorisationRuleResultList;
+    protected $responseCode;
+    protected $returnContext;
+    protected $s10TransactionId;
+    protected $s10TransactionIdDate;
+    protected $s10TransactionIdsList;
+    protected $scoreColor;
+    protected $scoreInfo;
+    protected $scoreThreshold;
+    protected $scoreValue;
+    protected $settlementMode;
+    protected $settlementModeComplement;
+    protected $statementReference;
+    protected $tokenPan;
+    protected $transactionActors;
+    protected $transactionDateTime;
+    protected $transactionOrigin;
+    protected $transactionReference;
+
+    /**
+     *
+     * @var \Worldline\Sips\Common\Field\S10TransactionReference
+     */
+    protected $s10TransactionReference;
+    protected $walletType;
 
     /**
      * PaypageResult constructor.
@@ -112,17 +118,22 @@ class PaypageResult
      */
     public function __construct(string $data)
     {
-        $data = explode('|', $data);
+        $data      = explode('|', $data);
         $dataArray = [];
         foreach ($data as $value) {
-            $value = explode('=', $value, 2);
+            $value                = explode('=', $value, 2);
             $dataArray[$value[0]] = $value[1];
         }
         foreach ($dataArray as $key => $value) {
             $this->$key = $value;
         }
-    }
 
+        if (!empty($this->s10TransactionId)) {
+            $this->s10TransactionReference = new \Worldline\Sips\Common\Field\S10TransactionReference();
+            $this->s10TransactionReference->setS10TransactionId($this->s10TransactionId);
+            $this->s10TransactionReference->setS10TransactionIdDate($this->s10TransactionIdDate);
+        }
+    }
 
     /**
      * @return null|string
@@ -261,7 +272,16 @@ class PaypageResult
     }
 
     /**
-     * @return null|string
+     *
+     * @return string
+     */
+    public function getComplementaryInfo(): ?string
+    {
+        return $this->complementaryInfo;
+    }
+
+    /**
+     * @return string|null
      */
     public function getCreditorId(): ?string
     {
@@ -799,22 +819,6 @@ class PaypageResult
     /**
      * @return null|string
      */
-    public function getS10TransactionId(): ?string
-    {
-        return $this->s10TransactionId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getS10TransactionIdDate(): ?string
-    {
-        return $this->s10TransactionIdDate;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getS10TransactionIdsList(): ?string
     {
         return $this->s10TransactionIdsList;
@@ -924,5 +928,14 @@ class PaypageResult
         return $this->walletType;
     }
 
+    public function getS10TransactionReference(): \Worldline\Sips\Common\Field\S10TransactionReference
+    {
+        return $this->s10TransactionReference;
+    }
 
+    public function setS10TransactionReference(\Worldline\Sips\Common\Field\S10TransactionReference $s10TransactionReference)
+    {
+        $this->s10TransactionReference = $s10TransactionReference;
+        return $this;
+    }
 }

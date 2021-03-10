@@ -11,8 +11,8 @@ use Worldline\Sips\Paypage\PaypageRequest;
 
 class JsonSealCalculatorTest extends TestCase
 {
-    private $paypageRequest;
-    private $jsonSealCalculator;
+    protected $paypageRequest;
+    protected $jsonSealCalculator;
     /**
      * @before
      */

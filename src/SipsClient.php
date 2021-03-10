@@ -9,36 +9,40 @@ use Worldline\Sips\Common\Seal\JsonSealCalculator;
 use Worldline\Sips\Common\Seal\PostSealCalculator;
 use Worldline\Sips\Common\SipsEnvironment;
 use Worldline\Sips\Paypage\InitializationResponse;
-use Worldline\Sips\Paypage\PaypageRequest;
 use Worldline\Sips\Paypage\PaypageResult;
-use Worldline\Sips\Paypage\SipsMessage;
+use Worldline\Sips\SipsMessage;
 
 class SipsClient
 {
     /**
      * @var SipsEnvironment
      */
-    private $environment;
+    protected $environment;
     /**
      * @var string
      */
-    private $merchantId;
+    protected $merchantId;
     /**
      * @var string
      */
-    private $secretKey;
+    protected $secretKey;
     /**
      * @var int
      */
-    private $keyVersion;
+    protected $keyVersion;
+    /**
+     * 
+     * @var string
+     */
+    protected $sealAlgorithm;
     /**
      * @var string
      */
-    private $lastRequestAsJson;
+    protected $lastRequestAsJson;
     /**
      * @var string
      */
-    private $lastResponseAsJson;
+    protected $lastResponseAsJson;
 
     /**
      * SipsClient constructor.
@@ -54,7 +58,7 @@ class SipsClient
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getEnvironment(): ?string
     {
@@ -71,35 +75,40 @@ class SipsClient
 
     /**
      * @param SipsMessage $paymentRequest
-     * @return InitializationResponse
+     * @return array|null
      * @throws \Exception
      */
-    public function initialize(SipsMessage &$paymentRequest): InitializationResponse
+    public function initialize(SipsMessage $sipsMessage): ?array
     {
-        $paymentRequest->setMerchantId($this->getMerchantId());
-        $paymentRequest->setKeyVersion($this->getKeyVersion());
+        $timeout = 0;
+        $sipsMessage->setMerchantId($this->getMerchantId());
+        $sipsMessage->setKeyVersion($this->getKeyVersion());
 
         $sealCalculator = new JsonSealCalculator();
-        $sealCalculator->calculateSeal($paymentRequest, $this->secretKey);
-        $json = json_encode($paymentRequest->toArray());
+        $sealAlgorithm = $this->sealAlgorithm ?? JsonSealCalculator::ALGORITHM_DEFAULT;
+        $sealCalculator->calculateSeal($sipsMessage, $this->secretKey, $sealAlgorithm);
+        $json = json_encode($sipsMessage->toArray());
         $this->lastRequestAsJson = $json;
-        $client = new Client(["base_uri" => $this->environment->getEnvironment()]);
+        $client = new Client([
+            "base_uri" => $this->environment->getEnvironment($sipsMessage->getConnecter()),
+            "timeout" => $timeout
+            ]);
         $headers = [
             "Content-Type" => "application/json",
             "Accept" => "application/json",
+            "timeout" => $timeout,
         ];
-        $request = new Request("POST", $paymentRequest->getServiceUrl(), $headers, $json);
-        $response = $client->send($request);
+        $request = new Request("POST", $sipsMessage->getServiceUrl(), $headers, $json);
+        $response = $client->send($request, ['timeout' => $timeout]);
         $this->lastResponseAsJson = $response->getBody()->getContents();
-        $initialisationResponse = new InitializationResponse(json_decode($this->lastResponseAsJson, true));
-        if (!is_null($initialisationResponse->getSeal())) {
-            $validSeal = $sealCalculator->isCorrectSeal($initialisationResponse, $this->getSecretKey());
+        $data = json_decode($this->lastResponseAsJson, true);
+        if (!empty($data['seal'])) {
+            $validSeal = $sealCalculator->checkSeal($data, $this->getSecretKey(), $sealAlgorithm);
             if (!$validSeal) {
                 throw new \Exception("Invalid seal in response. Response not trusted.");
             }
         }
-
-        return $initialisationResponse;
+        return $data;
     }
 
     /**
@@ -158,10 +167,35 @@ class SipsClient
         return $this->lastRequestAsJson;
     }
 
+    /**
+     * 
+     * @return string|null
+     */
+    public function getSealAlgorithm(): ?string
+    {
+        return $this->sealAlgorithm;
+    }
+
+    /**
+     * 
+     * @param type $sealAlgorithm
+     * @return $this
+     */
+    public function setSealAlgorithm($sealAlgorithm): SipsClient
+    {
+        $this->sealAlgorithm = $sealAlgorithm;
+        return $this;
+    }
+
+    /**
+     * 
+     * @return string|null
+     */
     public function getLastResponseAsJson(): ?string
     {
         return $this->lastResponseAsJson;
     }
+
     /**
      * @return PaypageResult
      * @throws \Exception

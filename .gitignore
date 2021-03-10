@@ -1,2 +1,5 @@
 .idea
 .DS_STORE
+/vendor/
+/nbproject/private/
+/nbproject/

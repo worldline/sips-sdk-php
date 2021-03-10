@@ -2,58 +2,62 @@
 
 namespace Worldline\Sips\Common\Seal;
 
-
 use Worldline\Sips\Paypage\InitializationResponse;
-use Worldline\Sips\Paypage\PaypageRequest;
-use Worldline\Sips\Paypage\SipsMessage;
+use Worldline\Sips\SipsMessage;
 
 class JsonSealCalculator
 {
-    public function calculateSeal(SipsMessage &$paypageRequest, $secretKey)
+    const ALGORITHM_SHA256      = 'SHA-256';
+    const ALGORITHM_HMAC_SHA256 = 'HMAC-SHA-256';
+    const ALGORITHM_HMAC_SHA512 = 'HMAC-SHA-512';
+    const ALGORITHM_DEFAULT     = self::ALGORITHM_HMAC_SHA256;
+    const EXCLUDED_FIELD        = ['seal', 'sealAlgorithm', 'keyVersion'];
+
+    public function calculateSeal(SipsMessage $sipsMessage, $secretKey, $algorithm = self::ALGORITHM_DEFAULT)
     {
-        $seal = $this->encrypt($this->getSealData($paypageRequest->toArray()), $secretKey);
-        $paypageRequest->setSeal($seal);
+        $seal = $this->encrypt($this->getSealData($sipsMessage->toArray()), $secretKey, $algorithm);
+        $sipsMessage->setSeal($seal);
+        if ($algorithm !== self::ALGORITHM_DEFAULT) {
+            $sipsMessage->setSealAlgorithm($algorithm);
+        }
     }
 
-    private function encrypt(string $sealData, string $secretKey): string
+    protected function encrypt(string $sealData, string $secretKey, string $algorithm = self::ALGORITHM_DEFAULT): string
     {
-        $sealData = utf8_encode($sealData);
+        $sealData  = utf8_encode($sealData);
         $secretKey = utf8_encode($secretKey);
 
-        return hash_hmac("sha256", $sealData, $secretKey);
+        switch ($algorithm) {
+            case self::ALGORITHM_SHA256:
+                return hash('sha256', $sealData . $secretKey);
+            case self::ALGORITHM_HMAC_SHA256:
+                return hash_hmac("sha256", $sealData, $secretKey);
+            case self::ALGORITHM_HMAC_SHA512:
+                return hash_hmac("sha512", $sealData, $secretKey);
+        }
     }
 
     public function getSealData(array $array): string
     {
         $sealData = "";
+        ksort($array);
 
         foreach ($array as $key => $value) {
-            if ($key != "keyVersion" && $key != "sealAlgorithm" && $key != "seal" && $key != "paymentMeanBrandList") {
-                if (is_array($value)) {
-                    foreach ($value as $item) {
-                        if (is_array($item)) {
-                            foreach ($item as $subItem) {
-                                $sealData .= $subItem;
-                            }
-                        } else {
-                            $sealData .= $item;
-                        }
-                    }
-                } else {
-                    $sealData .= $value;
-                }
-            } elseif ($key == "paymentMeanBrandList") {
-                foreach ($value as $brand) {
-                    $sealData .= $brand;
-                }
+            if (in_array($key, self::EXCLUDED_FIELD, true)) {
+                continue;
+            }
+            if (is_array($value)) {
+                $sealData .= $this->getSealData($value);
+            } else {
+                $sealData .= $value;
             }
         }
         return $sealData;
     }
 
-    public function isCorrectSeal(InitializationResponse $initializationResponse, $secretKey): bool
+    public function isCorrectSeal(InitializationResponse $initializationResponse, $secretKey, $sealAlgorithm): bool
     {
-        $seal = $this->encrypt($this->getSealData($initializationResponse->toArray()), $secretKey);
+        $seal = $this->encrypt($this->getSealData($initializationResponse->toArray()), $secretKey, $sealAlgorithm);
         if ($seal == $initializationResponse->getSeal()) {
             return true;
         } else {
@@ -61,4 +65,13 @@ class JsonSealCalculator
         }
     }
 
+    public function checkSeal($response, $secretKey, $sealAlgorithm): bool
+    {
+        $seal = $this->encrypt($this->getSealData($response), $secretKey, $sealAlgorithm);
+        if ($seal == $response['seal']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
